@@ -7,37 +7,75 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <div className="Profile">
+        <div id='Profile_Picture'> <img src={logo} style={{width:100, height:100, position:"relative", marginTop:"45px"}}></img></div>
+        <div className='Content' id='profile_content'>
+        <h1>Tanweer Baig</h1>
+        <p>Freelance Developer</p>
+        <button>Connect</button>
+        <button>Email</button>
+        </div>
+      </div>
+      <div className='Education'>
+        <h1>Education</h1>
+        <div className='EduSection'>
+          <img src={logo}></img>
+          <div className='Content'>
+          <h1>Bsc Computer Networks</h1>
+          <p>Middlesex University</p>
+          <p>2014-2018</p>
+          </div>
+        </div>
+        <div className='EduSection'>
+          <img src={logo}></img>
+          <div className='Content'>
+          <h1>A Levels</h1>
+          <p>London Academy Sixth Form</p>
+          <p>2021-2021</p>
+          </div>
+        </div>
+        <div className='EduSection'>
+          <img src={logo}></img>
+          <div className='Content'>
+          <h1>GCSEs</h1>
+          <p>London Academy</p>
+          <p>2021-2021</p>
+          </div>
+        </div>
+      </div>
+      <div className="Experiance">
+        <h1>Experiance</h1>
+        <div className='vl'></div>
+            <div className='ExpSection'> 
+            <div id='dot'><hr></hr></div>
+            <div className='Picture'> <img src={logo}></img></div>
+            <div className='Content'>
+            <p>2021-2021</p>
+            <h1>Freelance Developer</h1>
+            <p>FiveM, Upwork</p>
+            </div>
+            </div>
+
+            <div className='ExpSection'> 
+            <div id='dot'  style={{background:'lightblue'}}><hr></hr></div>
+            <div className='Picture'> <img src={logo}></img></div>
+            <div className='Content'>
+            <p>2021-2021</p>
+            <h1>Freelance Developer</h1>
+            <p>FiveM, Upwork</p>
+            </div>
+            </div>
+
+            <div className='ExpSection'> 
+            <div id='dot' style={{background:'red'}}><hr></hr></div>
+            <div className='Picture'> <img src={logo}></img></div>
+            <div className='Content'>
+            <p>2021-2021</p>
+            <h1>Freelance Developer</h1>
+            <p>FiveM, Upwork</p>
+            </div>
+            </div>
+      </div>
     </div>
   )
 }
