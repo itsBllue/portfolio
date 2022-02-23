@@ -197,3 +197,85 @@ img {
     text-align: left;
     font-weight: 400;
 }
+
+@media (min-height: 500px){
+    .Profile{
+        height: calc(280px - 20vh)
+    }
+    .Profile>#Profile_Picture{
+        height:calc(280px - 20vh);
+        width:calc(280px - 20vh);
+    }
+    .Profile>#Profile_Picture>img{
+        height: 50px;
+        width: 50px;
+        margin-top: 20px;
+    }
+    #profile_content>h1{
+        font-size: 21px;
+    }
+    #profile_content>p{
+        font-size: 14px;
+        margin: 5px auto 15px auto;
+    }
+    #profile_content>button:first-of-type{
+        font-size: 16px;
+        width: 120px;
+    }
+    #profile_content>button:nth-of-type(2){
+        font-size: 16px;
+        width: 120px;
+    }
+
+    .Education{
+        margin-top: 60px;
+    }
+    .Education>h1{
+        font-size: 21px;
+    }
+    .EduSection>.Content>h1{
+        font-size: 14px;
+    }
+    .EduSection>.Content>p:first-of-type{
+        font-size: 12px;
+    }
+    .EduSection>.Content>p:nth-of-type(2){
+        font-size: 12px;
+    }
+    .EduSection>img{
+        height: 50px;
+        width: 50px;
+        margin: 10px 0 0 0;
+    }
+    .Experiance>h1{
+        font-size: 21px;
+    }
+    .vl{
+        border-left: 3px solid black;
+    }
+
+    .ExpSection>#dot{
+        width: 10px;
+        height: 10px;
+        border:5px solid black;
+        margin-left: 1px;
+    }
+
+    #dot>hr{
+        border: 3px solid black;
+        margin: 3px 0 auto 10px;
+    }
+    .ExpSection>.Picture{
+        margin: auto 0 auto 41px;
+    }
+    .ExpSection>.Picture>img{
+        width: 75px;
+        height: 75px;
+    }
+    .ExpSection>.Content>p{
+        font-size: 12px;
+    }
+    .ExpSection>.Content>h1{
+        font-size: 16px;
+    }
+}
