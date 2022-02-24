@@ -76,6 +76,13 @@ function App() {
             </div>
             </div>
       </div>
+
+      <div className='Projects'>
+        <h1>Projects</h1>
+        <div className='ProjectSection'>
+
+        </div>
+      </div>
     </div>
   )
 }
