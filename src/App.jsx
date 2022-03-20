@@ -6,7 +6,7 @@ import {SchoolTwoTone} from '@mui/icons-material/';
 // import {ReactComponent  as UWTechlogo} from './uw.svg';
 import MDXlogo from './mdxlogo.png'
 import './App.css'
-
+import Viewer from './Components/Viewer/Viewer.jsx';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -60,7 +60,7 @@ function App() {
         <div className='vl'></div>
             <div className='ExpSection'> 
             <div id='dot'><hr></hr></div>
-            <div className='Picture'> <img src={FiveMUpworklogo} style={{height:'45px', width:'100%'}}></img></div>
+            <div className='Picture'> <img src={FiveMUpworklogo} style={{width:'3rem'}} ></img></div>
             <div className='Content'>
             <p>2021-Present</p>
             <h1>Freelance Developer</h1>
@@ -85,7 +85,7 @@ function App() {
 
             <div className='ExpSection'> 
             <div id='dot' style={{background:'#EA131E'}}><hr></hr></div>
-            <div className='Picture'> <img src={MDXlogo}></img></div>
+            <div className='Picture'> <img src={MDXlogo} ></img></div>
             <div className='Content'>
             <p>2015-2017</p>
             <h1>Student Learning Assistant</h1>
@@ -96,7 +96,8 @@ function App() {
 
       <div className='Projects'>
         <h1>Projects</h1>
-        <div className='ProjSection'>
+        <Viewer/>
+        {/* <div className='ProjSection'>
         <div className='Project'>
           <div id='Highlight'>
           <img src={logo}></img>
@@ -104,7 +105,7 @@ function App() {
           <h4 id='Title'>Email Parser</h4>
           <p id='Short'>Short description goes here, max 250 words?</p>
         </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
