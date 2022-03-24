@@ -1,3 +1,9 @@
 .Viewer {
     background: red;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Viewer>.Item{
+
 }
