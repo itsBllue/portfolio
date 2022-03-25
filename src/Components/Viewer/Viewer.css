@@ -39,6 +39,15 @@
     border-radius: 50%;
     height: 25px;
     width: 25px;
+    opacity: 50%;
+
+}
+
+.Langbadge.GoLang{
+    border: 3px solid blue;
+}
+.Langbadge.React{
+    border: 3px solid lightblue;
 }
 img{    max-width: 100%;
     object-fit: cover;
