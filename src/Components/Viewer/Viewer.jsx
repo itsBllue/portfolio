@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './Viewer.css';
 import Projects from './DummyData.json'
 import {Transition} from 'react-transition-group';
+import Placeholder from '../../img/placeholder.png';
+import ReactLogo from '../../img/react.png';
+import GolangLogo from '../../img/golang.png';
+const Images = {'React':ReactLogo, 'GoLang': GolangLogo}
+
 export  default class Viewer extends React.Component {
 
     state={}
@@ -54,7 +59,7 @@ function ProjectViewer(props){
     let list = Object.keys(props.list).map((item,value)=>{
             // console.log(props.list[item])
             let listItem = props.list[item]
-        return<ListItem itemName={listItem.Display}></ListItem>})
+        return<ListItem itemName={listItem.Display} Languages={listItem.Languages}></ListItem>})
     // let list = Object.keys(props.list)
     console.log(list)
     return(
@@ -66,8 +71,18 @@ function ProjectViewer(props){
 }
 
 function ListItem(props){
+    const LanguageBadge = props.Languages.map((lang) =>{ return <Langbadge lang={lang}/>})
     return(<div className='Item'>
-    <h1>{props.itemName}</h1>
-    <div className='test'></div>
+    <div className='Holder'>
+    <img src={props.IMG ? props.IMG : Placeholder}/>
+        </div> 
+    <h3>{props.itemName}</h3>
+    <div className='Bottombar'>{LanguageBadge}</div>
     </div>)
+}
+
+
+function Langbadge(props){
+    console.log(Images[props.lang])
+    return(<div className={"Langbadge " + props.lang}><img src={Images[props.lang]}/> </div>)
 }

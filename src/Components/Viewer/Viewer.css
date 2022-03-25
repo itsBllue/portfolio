@@ -1,9 +1,46 @@
 .Viewer {
-    background: red;
+    /* background: red; */
     display: flex;
     justify-content: space-between;
 }
 
 .Viewer>.Item{
-
+    background: white;
+    width: 40%;
+    min-height: 400px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.418);
 }
+.Viewer>.Item>.Holder{
+    width:85%;
+    margin: 1em auto 0 auto;
+    background: white;
+    min-height: 30%;
+    max-height: 35%;
+    border-radius: 35px;
+    overflow: hidden;
+    border: 1px solid black;
+}
+.Item>.Holder>img{
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+.Bottombar{
+    display: flex;
+}
+.Langbadge{
+    margin: 1rem 1rem;
+    /* background: black; */
+    border: 3px solid rgba(0, 0, 0, 0.384);
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+}
+img{    max-width: 100%;
+    object-fit: cover;
+    max-height: 100%;}
+
