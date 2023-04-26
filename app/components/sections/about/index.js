@@ -1,70 +1,72 @@
 
 
 "use client";
+import Image from "next/image";
 import React from "react";
-
+import './style.css';
+import TechIcon from "../../cards/techicon";
 
 
 export default function AboutSection(props){
 
     const frontendTech = [
         {
-            name:'React', img:'',
+            name:'React', img:'/images/react.png',
         },
         {
-            name:'React Native', img:'',
+            name:'React Native', img:'/images/react.png',
         },
         {
-            name:'Expo', img:'',
+            name:'Expo', img:'/images/react.png',
         },
         {
-            name:'NextJS', img:'',
+            name:'NextJS', img:'/images/next.png',
         },
         {
-            name:'Tailwind', img:'',
+            name:'Tailwind', img:'/images/tailwind.svg',
         },
         {
-            name:'Typescript', img:'',
+            name:'Typescript', img:'/images/ts.png',
         },
         {
-            name:'Javascript', img:'',
+            name:'Javascript', img:'/images/js.png',
         }
     ]
 
     const backendTech = [
         {
-            name:'NodeJS', img:'',
+            name:'NodeJS', img:'/images/node.png',
         },
         {
-            name:'ExpressJS', img:'',
+            name:'ExpressJS', img:'/images/express.png',
         },
         {
-            name:'Apollo', img:'',
+            name:'Apollo', img:'/images/express.png',
         },
         {
-            name:'GraphQL', img:'',
+            name:'GraphQL', img:'/images/graphql.png',
         },
         {
-            name:'MySQL', img:'',
+            name:'MySQL', img:'/images/mongodb.svg',
         },
         {
-            name:'MongoDB', img:'',
+            name:'MongoDB', img:'/images/mongodb.svg',
         }
     ]
 
     const otherTech = [
         {
-            name:'Figma', img:'',
+            name:'Figma', img:'/images/graphql.png',
         },
         {
-            name:'AdobeXD', img:'',
+            name:'AdobeXD', img:'/images/graphql.png',
         }
     ]
 
     return(  
-    <section className='exp-content-container h-screen bg-white flex flex-col'> 
+    <section className='exp-content-container bg-slate-900 '> 
         <div className='bg-slate-200 about-content-container h-1/6 p-5 mt-20 ml-8 mr-8 relative'>
-            <h1 className='section-title font-bold mt-5 absolute -top-12 text-2xl'>About</h1>
+            <h1 className='section-title text-primary font-bold mt-5 absolute -top-12 text-2xl'>About</h1>
                 <div className='about-me-content-container'>
                     <p className="w-full font-medium pl-2 ">
                 Hey there! I'm a software developer with a passion for creativity and continuous growth. 
@@ -76,16 +78,16 @@ export default function AboutSection(props){
 
                 </div>
         </div>
-        <div className='tech-stack-container  bg-slate-200 h-2/5 p-5 mt-20 mr-8 ml-8 relative'>
-            <h1 className='section-title font-bold mt-5  absolute -top-12 text-2xl'>Tech Stack</h1>
+        <div className='tech-stack-container  bg-slate-200 h-fit p-5 mt-20 mr-8 ml-8 relative'>
+            <h1 className='section-title  text-primary '>Tech Stack</h1>
        
             <div className='tech-stack-tab tab-frontend'>
-                <h3 className="tab-title">
+                <h3 className="tab-title font-medium text-l">
                     Frontend
                 </h3>
                    
-                    <div className='tech-stack-content flex flex-row  justify-evenly'>
-                    {frontendTech.map(tech => {return<p  key={tech.name + 'fnd'}> {tech.name}</p>})}
+                    <div className='tech-stack-content flex flex-row  justify-start'>
+                    {frontendTech.map(tech => <TechIcon key={tech.name +  "fd"} name={tech.name} icon={tech.img}/>)}
                     </div>
             </div>
 
@@ -93,16 +95,16 @@ export default function AboutSection(props){
                 <h3 className="tab-title">
                     Backend
                 </h3>
-                    <div className='tech-stack-content flex flex-row  justify-evenly'>
-                    {backendTech.map(tech => {return<p  key={tech.name + 'fnd'}> {tech.name}</p>})}
+                    <div className='tech-stack-content flex flex-row  justify-start'>
+                    {backendTech.map(tech => <TechIcon key={tech.name +  "fd"} name={tech.name} icon={tech.img}/>)}
                     </div>
             </div>
             <div className='tech-stack-tab tab-other'>
             <h3 className="tab-title">
                 Other Skills
             </h3>
-                    <div className='tech-stack-content flex flex-row  justify-evenly'>
-                    {otherTech.map(tech => {return<p  key={tech.name + 'fnd'}> {tech.name}</p>})}
+                    <div className='tech-stack-content flex flex-row  justify-start'>
+                    {otherTech.map(tech => <TechIcon key={tech.name +  "fd"} name={tech.name} icon={tech.img}/>)}
                     </div>
             </div>
 
