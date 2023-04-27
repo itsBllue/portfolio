@@ -21,7 +21,7 @@ export default function SidebarComponent(props){
         
         <label for="my-drawer-2" class="drawer-overlay"> side bar here labl</label> 
         <div className='drawer-header bg-secondary'>
-            <Image  className="m-auto  mt-5 rounded-lg overflow-hidden" src="/images/linkedin.svg" width={75} height={75} alt="profile image" />
+            <Image  className="m-auto  mt-5 rounded-lg overflow-hidden" src="/images/profile.png" width={200} height={200} alt="profile image" />
             <h1 className="text-center m-5 text-lg font-bold">Tanweer Baig</h1>
             <div className="social-links w-2/5 m-auto rounded flex flex-row bg-slate-400 justify-center">
                 <SocialIcon name="linkedin"/>

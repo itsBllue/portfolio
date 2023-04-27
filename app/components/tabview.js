@@ -25,14 +25,15 @@ export default function TabView(props){
         setCurrentTab(tabIndex);
     }
     return(
-        <div className="tab-view w-3/5 m-auto bg-secondary rounded">
+        <div className="tab-view w-3/5 mb-10 m-auto bg-secondary rounded relative ">
+            <h1 className='section-title  text-neutral-content ml-5 '>Tech Stack</h1>
 
         <div className="tabs flex flex-row justify-evenly">
             {/* {tabList} */}
             {titles.map((tab,index) => <Tab onClick={() => handleTabClick(index)} key={"d"+index} child={content[index]} active={currentTab === index} title={tab} />)}
         </div>
         <>
-        {content.map((content,index)=><div key={index} className={currentTab === index ? "tab-content" : "tab-content hidden"}>{content}</div>)}
+        {content.map((content,index)=><div key={index} className={currentTab === index ? "tab-content text-secondary-content" : "tab-content hidden"}>{content}</div>)}
         </>
 
         {/* <div className="content">

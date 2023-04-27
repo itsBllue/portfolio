@@ -2,36 +2,100 @@
 
 
 "use client";
-import React,{useState}  from "react";
+import React,{useState,useEffect}  from "react";
 import Image from "next/image";
-export default function ProjectView(props){
-    // This needs to be like a view with breadcrumbs to navigate it.
-    const [currentLocation,setCurrentLocation] = useState("homepage");
 
-    return(
-        <div className="project-view-container w-11/12 ml-9 mt-8 p-5  relative">
-            <div className="text-lg breadcrumbs  -top-10 absolute font-semibold">
-  <ul>
-    <li><a>Highlighted Projects</a></li> 
-    <li><a>myUW</a></li> 
-  </ul>
-</div>
-        <div className="project-card">
-            <div className="card w-96 bg-primary shadow-xl">
-  <figure><Image src="/images/react.png" alt="Shoes" width={300} height={300} /></figure>
-  <div className="card-body">
+const Projects = [{
+    "name":"Test Project",
+    "description":" This is a description of the project",
+    "short":" This is a short description of the project",
+    "tags":["React", "MongoDB", "Mongoose"],
+    "image":"images/react.png",
+},
+{
+  "name":"Test 2",
+  "description":" This is a description of the project",
+  "short":" This is a short description of the project",
+  "tags":["React", "MongoDB", "Mongoose"],
+  "image":"images/react.png",
+},
+{
+  "name":"Test 3",
+  "description":" This is a description of the project",
+  "short":" This is a short description of the project",
+  "tags":["React", "MongoDB", "Mongoose"],
+  "image":"images/react.png",
+}]
+
+export default function ProjectViewComponent(props){
+    // This needs to be like a view with breadcrumbs to navigate it.
+    const [currentLocation,setCurrentLocation] = useState(-1);
+    const [loading,setIsLoading] = useState(false)
+    const [breadcrumbs, setBreadcrumbs] = useState([])
+    useEffect(()=>{
+      console.log("current location", currentLocation)
+      if(currentLocation  === -1)
+        return;
+      setBreadcrumbs([Projects[currentLocation].name])
+    },[currentLocation])
+
+    const handleViewChange = (index)=>{
+      // index 0  = home 1-4 projects
+      setCurrentLocation(index)
+      console.log('got index', index)
+    }
+    const [currentProjectInView, setCurrentProjectInView] = useState();
+
+    if(loading)
+    return (<div className="">SPinner here</div>)
+    
+
+    return(<div className="project-view-container w-11/12 ml-9 mt-8 p-5 pt-2   relative">
+      <Breadcrumbs setLocation={setCurrentLocation} setCrumbs={setBreadcrumbs} breadcrumbs={breadcrumbs}/>
+    <div className="project-view-content bg-secondary text-secondary-content h-auto p-2 pt-8 pb-8">
+        {currentLocation == -1 ? <HomeView projects={Projects} onClick={handleViewChange}/> : <ProjectView project={currentProjectInView}/>}
+    </div>
+    </div>
+    )
+ 
+}
+
+
+function HomeView(props){
+  const {projects , onClick} = props;
+  return(<div className="projects-view-home flex justify-evenly ">
+      {projects.map((project,index)=><div key={"Project "+ index}  onClick={()=>onClick(index)}
+      className="Project-card card w-72 bg-primary text-primary-content shadow-xl h-96">
+      <figure><Image src="/images/react.png" alt="Shoes" width={150} height={150} /></figure>
+      <div className="card-body">
     <h2 className="card-title">
-     Project title.
+    {project.name}
     </h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <p>{project.short}</p>
     <div className="card-actions justify-end">
-      <div className="badge badge-outline">ReactJS</div>
-      <div className="badge badge-outline">MongoDB</div>
+      {project.tags.map((tag,in2)=><div key={"ProjectTab"+ index + "|" + in2 }className="badge badge-outline">{tag}</div>)}
+
     </div>
   </div>
-</div>
-        </div>
-        </div>
+        </div>)}
+  </div>)
+}
 
+
+function ProjectView(props){
+  //  this will desplay project information.
+  return(<div  className="card w-96 bg-primary">project</div>)
+}
+
+function Breadcrumbs(props){
+    const{breadcrumbs, setLocation, setCrumbs} = props;
+    console.log('breadcrumbs should be ', breadcrumbs)
+    return(
+      <div className="text-lg breadcrumbs  -top-10 absolute font-semibold">
+      <ul>
+      <li onClick={()=>{setLocation(-1); setCrumbs([])}}><a >Highlighted Projects</a></li> 
+      {breadcrumbs.map(breadcrumb=><li key={"breadcrumb_"+breadcrumb}>{breadcrumb}</li>)}
+      </ul>
+      </div>
     )
 }
