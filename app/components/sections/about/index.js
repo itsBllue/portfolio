@@ -5,6 +5,7 @@ import Image from "next/image";
 import React from "react";
 import './style.css';
 import TechIcon from "../../cards/techicon";
+import TabView from "../../tabview";
 
 
 export default function AboutSection(props){
@@ -78,7 +79,7 @@ export default function AboutSection(props){
 
                 </div>
         </div>
-        <div className='tech-stack-container  bg-slate-200 h-fit p-5 mt-20 mr-8 ml-8 relative'>
+        {/* <div className='tech-stack-container  bg-slate-200 h-fit p-5 mt-20 mr-8 ml-8 relative'>
             <h1 className='section-title  text-primary '>Tech Stack</h1>
        
             <div className='tech-stack-tab tab-frontend'>
@@ -108,7 +109,17 @@ export default function AboutSection(props){
                     </div>
             </div>
 
-        </div>
+        </div> */}
+        <TabView titles={['Frontend', 'Backend', 'Other skills']} content={[<TechTab key="1" content={frontendTech}/>, <TechTab key="2" content={backendTech}/>, <TechTab key="3" content={otherTech}/>]}/>
     </section>
+    )
+}
+
+function TechTab(props){
+    const {content}  = props;
+    return(
+        <div className='tech-stack-content flex flex-row  justify-start'>
+        {content.map(tech => <TechIcon key={tech.name +  "fd"} name={tech.name} icon={tech.img}/>)}
+        </div>
     )
 }
