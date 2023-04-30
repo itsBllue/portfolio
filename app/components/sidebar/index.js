@@ -9,7 +9,7 @@ function SocialIcon(props){
     const {name} = props;
 
     return(<div>
-        <Image className="social-icon m-2" src={`images/${name}.svg`} alt={name+" socialicon"} width={25} height={25}/>
+        <Image className="social-icon m-2" src={process.env.cdn + `images/${name}.svg`} alt={name+" socialicon"} width={25} height={25}/>
     </div>)
 }
 
@@ -21,7 +21,7 @@ export default function SidebarComponent(props){
         
         <label for="my-drawer-2" class="drawer-overlay h-1"> side bar here labl</label> 
         <div className='drawer-header bg-secondary  pb-5'>
-            <Image  className="m-auto  mt-5 rounded-lg overflow-hidden" src="/images/profile.png" width={200} height={200} alt="profile image" />
+            <Image  className="m-auto  mt-5 rounded-lg overflow-hidden" src={process.env.cdn + "/images/profile.png"} width={200} height={200} alt="profile image" />
             <h1 className="text-center m-5 text-lg font-bold">Tanweer Baig</h1>
             <div className="social-links w-2/5 m-auto rounded flex flex-row bg-slate-400 justify-center">
                 <SocialIcon name="linkedin"/>
