@@ -54,7 +54,7 @@ section {
 .timeline-entry-marker::before {
     @apply bg-accent;
     position: absolute;
-    height: 210px;
+    height: 120px;
     left: 10px;
     width: 5px;
     top: 24px;

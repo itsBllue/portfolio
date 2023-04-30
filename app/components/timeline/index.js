@@ -8,10 +8,10 @@ function TimelineEntry(props){
     const {title,period,subtitle} = props;
 
     return(
-        <div className="timeline-entry-box-thing flex w-fit h-52 relative">
+        <div className="timeline-entry-box-thing flex w-fit h-25 relative">
     <div className="timeline-entry ">
-        <h1 className="timeline-entry-title text-3xl ml-3">{title}</h1>
-        <h1 className="timeline-entry-period text-sm bg-accent w-fit p-1 ml-3 mt-3">{period}</h1>
+        <h1 className="timeline-entry-title text-2xl ml-3 font-bold">{title}</h1>
+        <h1 className="timeline-entry-period text-sm bg-accent w-fit p-2 ml-3 mt-3">{period}</h1>
         <h1 className="timeline-entry-location text-sm italic ml-3 mt-3">{subtitle}</h1>
     </div>
         </div>

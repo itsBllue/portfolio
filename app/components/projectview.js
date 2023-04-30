@@ -10,7 +10,7 @@ const Projects = [{
     "description":" This is a description of the project",
     "short":" This is a short description of the project",
     "tags":["React", "MongoDB", "Mongoose"],
-    "image":"images/react.png",
+    "image":"images/testimg.png",
 },
 {
   "name":"Test 2",
@@ -63,10 +63,10 @@ export default function ProjectViewComponent(props){
 
 function HomeView(props){
   const {projects , onClick} = props;
-  return(<div className="projects-view-home flex justify-evenly ">
+  return(<div className="projects-view-home flex justify-evenly overflow-hidden ">
       {projects.map((project,index)=><div key={"Project "+ index}  onClick={()=>onClick(index)}
       className="Project-card card w-72 bg-primary text-primary-content shadow-xl h-96">
-      <figure><Image src="/images/react.png" alt="Shoes" width={150} height={150} /></figure>
+      <div className="w-full bg-red-500 relative"><Image src="/images/testimg.png" alt="Shoes"  fill style={{objectFit:"contain"}}/></div>
       <div className="card-body">
     <h2 className="card-title">
     {project.name}

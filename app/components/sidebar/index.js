@@ -16,11 +16,11 @@ function SocialIcon(props){
 export default function SidebarComponent(props){
 
     return(
-       <div className="drawer-side ">
+       <div className="drawer-side  bg-secondary">
        {/* <div className=" drawer-side flex-none drawer-contianer w-60 bg-black text-white'"> */}
         
-        <label for="my-drawer-2" class="drawer-overlay"> side bar here labl</label> 
-        <div className='drawer-header bg-secondary'>
+        <label for="my-drawer-2" class="drawer-overlay h-1"> side bar here labl</label> 
+        <div className='drawer-header bg-secondary  pb-5'>
             <Image  className="m-auto  mt-5 rounded-lg overflow-hidden" src="/images/profile.png" width={200} height={200} alt="profile image" />
             <h1 className="text-center m-5 text-lg font-bold">Tanweer Baig</h1>
             <div className="social-links w-2/5 m-auto rounded flex flex-row bg-slate-400 justify-center">
@@ -28,11 +28,12 @@ export default function SidebarComponent(props){
                 <SocialIcon name="github"/>
             </div>
         </div>
-        <ul class="menu p-10 w-80 bg-secondary text-secondary-content">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
+        <ul class="menu p-10 w-80 bg-secondary text-secondary-content row-span-6">
+            <li><a href="#home" className="text-xl font-semibold" >Home</a></li>
+            <li><a href="#projects" className="text-xl font-semibold">Projects</a></li>
+            <li><a href="#experience" className="text-xl font-semibold">Experience</a></li>
         </ul>
+        <h1 className="bg-transparent m-auto">Made with NextJS & TailwindCSS [<span href="#" className="underline text-blue-500">Github</span>]</h1>
         </div>
     )
 }
