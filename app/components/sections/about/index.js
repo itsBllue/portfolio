@@ -69,12 +69,14 @@ export default function AboutSection(props){
         <div className='bg-slate-200 about-content-container h-1/6 p-5 mt-20 ml-8 mr-8 relative'>
             <h1 className='section-title text-neutral-content font-bold mt-5 absolute -top-12 text-2xl'>About</h1>
                 <div className='about-me-content-container'>
-                    <p className="w-full font-medium pl-2 ">
-                Hey there! I'm a software developer with a passion for creativity and continuous growth. 
+                    <p className="w-full font-medium pl-2 ">{`
+
+                        Hey there! I'm a software developer with a passion for creativity and continuous growth. 
                 I'm always on the lookout for new technologies and ways to improve my skills, and I love learning from others' feedback. 
                 My experience with different development cycles and stacks has helped me become a quick learner and adaptable problem solver.
                 I'm a team player and love working with others to create innovative solutions. In fact, 
                 I'm a natural leader and enjoy guiding and motivating my teammates towards success. Let's create something amazing together!
+            `}
                  </p>
 
                 </div>

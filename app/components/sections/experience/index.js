@@ -27,12 +27,12 @@ const certs =[{
 const profexp=[
     {
     title:"Freelance Developer",
-    subtitle:"FiveM",
+    subtitle:"Remote",
     period:"2021 - Present"
 },
 {
     title:"Technical Advisor",
-    subtitle:"Utilitywarehouse",
+    subtitle:"Remote, Utilitywarehouse",
     period:"2019 - Present"
 },
 ]
@@ -64,16 +64,16 @@ export default function ExpSection(props){
                 </div>
             </div>
         </div> */}
-        <div className="education-content-container ">
-            <h1 className="text-4xl p-5">Edcuation</h1>
+        <div className="education-content-container h-fit pb-5 overflow-hidden">
+            <h1 className="text-3xl p-5">Edcuation</h1>
         <TimelineComponent Entries={EdcuEntries} />
         </div>
         <div className="Professional-content-container mt-5">
-            <h1 className="text-5xl p-5">Professional Experience</h1>
+            <h1 className="text-3xl p-5 pt-0">Professional Experience</h1>
         <TimelineComponent Entries={profexp} />
         </div>
         <div className="certificate-content-container mt-5">
-            <h1 className="text-5xl p-5">Certifications</h1>
+            <h1 className="text-3xl p-5">Certifications</h1>
         <TimelineComponent Entries={certs} />
         </div>
     </section>)
