@@ -65,7 +65,7 @@ export default function AboutSection(props){
     ]
 
     return(  
-    <section className='exp-content-container bg-slate-900 '> 
+    <section id="home" className='exp-content-container bg-slate-900 '> 
         <div className='bg-slate-200 about-content-container h-1/6 p-5 mt-20 ml-8 mr-8 relative'>
             <h1 className='section-title text-neutral-content font-bold mt-5 absolute -top-12 text-2xl'>About</h1>
                 <div className='about-me-content-container'>

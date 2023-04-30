@@ -31,3 +31,13 @@ section {
 .section-title {
     @apply font-bold mt-5 absolute -top-12 text-2xl
 }
+
+.timeline-entry-box-thing::after {
+    background: black;
+    content: "";
+    width: 50px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+}
