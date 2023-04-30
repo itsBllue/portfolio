@@ -66,7 +66,7 @@ function HomeView(props){
   return(<div className="projects-view-home flex justify-evenly overflow-hidden ">
       {projects.map((project,index)=><div key={"Project "+ index}  onClick={()=>onClick(index)}
       className="Project-card card w-72 bg-primary text-primary-content shadow-xl h-96">
-      <div className="w-full  relative h-40 overflow-hidden rounded-lg"><Image src="/images/testimg.png" alt="Shoes"  className="p-1 m-auto rounded-3xl" fill style={{objectFit:"contain"}}/></div>
+      <div className="w-full  relative h-40 overflow-hidden rounded-lg"><Image src={process.env.cdn + "/images/testimg.png"} alt="Shoes"  className="p-1 m-auto rounded-3xl" fill style={{objectFit:"contain"}}/></div>
       <div className="card-body">
     <h2 className="card-title">
     {project.name}

@@ -9,12 +9,12 @@ function SocialIcon(props){
     const {name} = props;
 
     return(<div>
-        <Image className="social-icon m-2" src={process.env.cdn + `images/${name}.svg`} alt={name+" socialicon"} width={25} height={25}/>
+        <Image className="social-icon m-2" src={process.env.cdn + `/images/${name}.svg`} alt={name+" socialicon"} width={25} height={25}/>
     </div>)
 }
 
 export default function SidebarComponent(props){
-
+    console.log(process.env.cdn);
     return(
        <div className="drawer-side  bg-secondary">
        {/* <div className=" drawer-side flex-none drawer-contianer w-60 bg-black text-white'"> */}

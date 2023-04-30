@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env:{
+    cdn:"https://portfolio-tanweer.s3.eu-west-2.amazonaws.com"
+  },
   experimental: {
     appDir: true,
   },
