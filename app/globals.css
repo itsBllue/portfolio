@@ -41,3 +41,24 @@ section {
     left: 0;
     bottom: 10px;
 }
+
+.timeline-entry-marker {
+    position: relative;
+    @apply bg-accent;
+}
+
+.timeline-entry-marker:hover {
+    @apply bg-accent-focus;
+}
+
+.timeline-entry-marker::before {
+    @apply bg-accent;
+    position: absolute;
+    height: 210px;
+    left: 10px;
+    width: 5px;
+    top: 24px;
+    /* z-index: -1; */
+    content: "";
+    /* background-image: linear-gradient(45deg, #F27121, #E94057, #8A2387); */
+}

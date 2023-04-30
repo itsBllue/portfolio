@@ -8,10 +8,11 @@ function TimelineEntry(props){
     const {title,period,subtitle} = props;
 
     return(
-        <div className="timeline-entry-box-thing flex w-30 bg-red-800 h-52 relative">
-        <div className="timeline-entry-marker rounded-full bg-primary h-6 flex w-6 col-span-4"> </div>
-    <div className="timeline-entry bg-slate-800  col-span-8">
-        <h1 className="timeline-entry-title">{title}</h1>
+        <div className="timeline-entry-box-thing flex w-fit h-52 relative">
+    <div className="timeline-entry ">
+        <h1 className="timeline-entry-title text-3xl ml-3">{title}</h1>
+        <h1 className="timeline-entry-period text-sm bg-accent w-fit p-1 ml-3 mt-3">{period}</h1>
+        <h1 className="timeline-entry-location text-sm italic ml-3 mt-3">{subtitle}</h1>
     </div>
         </div>
     )
@@ -19,7 +20,15 @@ function TimelineEntry(props){
 export default function TimelineComponent(props) {
     const {Entries} = props;
 
-    return(<div className="timeline-container grid-cols-2 grid gap-y-5 gap-x-0">
-           {Entries.map(entry =><TimelineEntry key={entry.name +"_entry"} title={entry.title} subtitle={entry.subtitle} period={entry.period} />)} 
+    return(<div className="timeline-container  grid-cols-[30px_minmax(900px,_1fr)] grid gap-y-5 gap-x-0 relative ml-4">
+           {Entries.map(entry =>{
+            return(
+                <>
+            <div className="timeline-entry-marker rounded-full bg-primary h-6 flex w-6 "> </div>
+           <TimelineEntry key={entry.name +"_entry"} title={entry.title} subtitle={entry.subtitle} period={entry.period} />
+                    </>
+            )
+           }
+           )} 
     </div>)
 }

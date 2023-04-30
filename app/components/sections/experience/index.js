@@ -3,6 +3,19 @@
 import React from "react";
 import TimelineComponent from "../../timeline";
 
+const EdcuEntries = [
+    {title:"Computer Networks",
+    subtitle:"Middlesex University",
+    period:"2014-2016"
+    }
+]
+
+const certs =[{
+    title:"Developer Assosiate",
+    subtitle:"Amazon",
+    period:"2023"
+}]
+
 export default function ExpSection(props){
 
     return(<section id="experience" className="bg-slate-900 text-neutral-content" >
@@ -30,7 +43,13 @@ export default function ExpSection(props){
                 </div>
             </div>
         </div> */}
-
-        <TimelineComponent Entries={[{title:"Computer Networks", subtitle:"Middlesex University", period:"2014-2016"},{title:"Computer Networks 2   ", subtitle:"Middlesex University", period:"2014-2016"}, {title:"2Computer Networks", subtitle:"Middlesex University", period:"2014-2016"}]} />
+        <div className="education-content-container">
+            <h1 className="text-5xl p-5">Edcuation</h1>
+        <TimelineComponent Entries={EdcuEntries} />
+        </div>
+        <div className="certificate-content-container">
+            <h1 className="text-5xl p-5">Certifications</h1>
+        <TimelineComponent Entries={certs} />
+        </div>
     </section>)
 }
