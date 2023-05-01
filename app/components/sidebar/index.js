@@ -5,13 +5,8 @@
 import React from "react";
 import Image from "next/image";
 
-function SocialIcon(props){
-    const {name} = props;
 
-    return(<div>
-        <Image className="social-icon m-2" src={process.env.cdn + `/images/${name}.svg`} alt={name+" socialicon"} width={25} height={25}/>
-    </div>)
-}
+import SocialIcon from "../socialicon";
 
 export default function SidebarComponent(props){
     console.log(process.env.cdn);
@@ -19,7 +14,7 @@ export default function SidebarComponent(props){
        <div className="drawer-side  bg-secondary">
        {/* <div className=" drawer-side flex-none drawer-contianer w-60 bg-black text-white'"> */}
         
-        <label for="my-drawer-2" class="drawer-overlay h-1"> side bar here labl</label> 
+        <label for="my-drawer-2" class="drawer-overlay h-40 bg-red-400"> side bar here labl</label> 
         <div className='drawer-header bg-secondary  pb-5'>
             <Image  className="m-auto  mt-5 rounded-lg overflow-hidden" src={process.env.cdn + "/images/profile.png"} width={200} height={200} alt="profile image" />
             <h1 className="text-center m-5 text-lg font-bold">Tanweer Baig</h1>
