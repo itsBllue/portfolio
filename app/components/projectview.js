@@ -6,21 +6,21 @@ import React,{useState,useEffect}  from "react";
 import Image from "next/image";
 
 const Projects = [{
-    "name":"Test Project",
+    "name":"FiveM Modifications",
     "description":" This is a description of the project",
     "short":" This is a short description of the project",
     "tags":["React", "MongoDB", "Mongoose"],
     "image":"images/testimg.png",
 },
 {
-  "name":"Test 2",
+  "name":"E-Commerce Marketplace",
   "description":" This is a description of the project",
   "short":" This is a short description of the project",
   "tags":["React", "MongoDB", "Mongoose"],
   "image":"images/react.png",
 },
 {
-  "name":"Test 3",
+  "name":"myUW  - Employee Mobile app",
   "description":" This is a description of the project",
   "short":" This is a short description of the project",
   "tags":["React", "MongoDB", "Mongoose"],
@@ -50,7 +50,7 @@ export default function ProjectViewComponent(props){
     return (<div className="">SPinner here</div>)
     
 
-    return(<div className="project-view-container w-11/12 ml-9 mt-8 p-5 pt-2   relative">
+    return(<div className="project-view-container w-auto ml-5 mr-5 mt-5 p-5 pt-2   relative">
       <Breadcrumbs setLocation={setCurrentLocation} setCrumbs={setBreadcrumbs} breadcrumbs={breadcrumbs}/>
     <div className="project-view-content bg-secondary text-secondary-content h-auto p-2 pt-8 pb-8">
         {currentLocation == -1 ? <HomeView projects={Projects} onClick={handleViewChange}/> : <ProjectView project={currentProjectInView}/>}
@@ -63,9 +63,9 @@ export default function ProjectViewComponent(props){
 
 function HomeView(props){
   const {projects , onClick} = props;
-  return(<div className="projects-view-home flex justify-evenly overflow-hidden ">
+  return(<div className="projects-view-home flex  flex-col justify-evenly overflow-hidden ">
       {projects.map((project,index)=><div key={"Project "+ index}  onClick={()=>onClick(index)}
-      className="Project-card card w-72 bg-primary text-primary-content shadow-xl h-96">
+      className="Project-card m-auto mt-10 card w-72 bg-primary text-primary-content shadow-xl h-96">
       <div className="w-full  relative h-40 overflow-hidden rounded-lg"><Image src={process.env.cdn + "/images/testimg.png"} alt="Shoes"  className="p-1 m-auto rounded-3xl" fill style={{objectFit:"contain"}}/></div>
       <div className="card-body">
     <h2 className="card-title">
