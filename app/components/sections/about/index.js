@@ -75,16 +75,18 @@ export default function AboutSection(props){
                         <span className="text-4xl"> Hey there! </span>
                         <br></br>
                         <br></br>
-                        <span className="">
-                            I'm a software developer with a passion for creativity and continuous growth. 
-                I'm always on the lookout for new technologies and ways to improve my skills, and I love learning from others' feedback. 
-                My experience with different development cycles and stacks has helped me become a quick learner and adaptable problem solver.
-                I'm a team player and love working with others to create innovative solutions. In fact, 
-                I'm a natural leader and enjoy guiding and motivating my teammates towards success.
+                        <span className="">{`
+                        
+                        I'm a software developer with a passion for creativity and continuous growth. 
+                        I'm always on the lookout for new technologies and ways to improve my skills, and I love learning from others' feedback. 
+                        My experience with different development cycles and stacks has helped me become a quick learner and adaptable problem solver.
+                        I'm a team player and love working with others to create innovative solutions. In fact, 
+                        I'm a natural leader and enjoy guiding and motivating my teammates towards success.
+                        `}
                 <br></br> 
                 <br></br> 
                 <span>
-                    Let's create something amazing together!
+                    {`Let's create something amazing together!`}
                     </span>
                             </span> 
             
