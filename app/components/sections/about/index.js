@@ -67,12 +67,12 @@ export default function AboutSection(props){
 
     return(  
     <section id="home" className='exp-content-container bg-slate-900 '> 
-        <div className='text-primary-content bg-primary text-2xl about-content-container h-fit p-5 mt-20 ml-8 mr-8 relative'>
+        <div className='text-secondary-content bg-secondary text-2xl about-content-container h-fit p-5 mt-20 ml-8 mr-8 relative'>
             <h1 className='section-title text-neutral-content font-bold mt-5 absolute -top-12 text-2xl'>About</h1>
                 <div className='about-me-content-container'>
-                    <p className="w-full font-medium pl-2 ">
+                    <p className="w-11/12 font-medium pl-2 ">
 
-                        <span className="text-4xl"> Hey there! </span>
+                        <span className="text-3xl"> Hey there! </span>
                         <br></br>
                         <br></br>
                         <span className="">{`
@@ -93,16 +93,16 @@ export default function AboutSection(props){
                  </p>
                 <div className="m-1 mt-10 flex w-3/4">
                  <div className="social-item flex ">
-                <SocialIcon className="bg-primary w-fit fill-primary-content rounded-full"  svg name="github"/>
+                <SocialIcon className="bg-secondary w-fit fill-neutral-content rounded-full"  svg name="github"/>
                 <p className="ml-5 m-auto">Tanweerkbaig@gmail.com</p>
                  </div>
                  <div className="social-item flex m-auto ">
-                <SocialIcon className="bg-primary w-fit fill-primary-content rounded-full"  svg name="linkedin"/>
+                <SocialIcon className="bg-secondary w-fit fill-neutral-content rounded-full"  svg name="linkedin"/>
                 <p className="ml-5 m-auto">/in/tkb/</p>
                  </div>
 
                  <div className="social-item flex ">
-                <SocialIcon className="bg-primary w-fit fill-primary-content rounded-full"  svg name="discord"/>
+                <SocialIcon className="bg-secondary w-fit fill-neutral-content rounded-full"  svg name="discord"/>
                 <p className="ml-5 m-auto">{"Cap'n#3825"}</p>
                  </div>
 
