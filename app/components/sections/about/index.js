@@ -3,11 +3,10 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import './style.css';
 import TechIcon from "../../cards/techicon";
 import TabView from "../../tabview";
 import SocialIcon from "../../socialicon";
-
+import toClipboard from "@/app/utils/toClipboard";
 
 export  function AboutSection(props){
 
@@ -86,14 +85,14 @@ export  function AboutSection(props){
                 <br></br> 
                 <br></br> 
                 <span className="font-medium">
-                    {`Let's create something amazing together!`}
+                    {`Let's create something together!`}
                     </span>
                             </span> 
             
                  </p>
                 <div className="m-1 mt-10 flex w-3/4">
                  <div className="social-item flex ">
-                <SocialIcon className="bg-secondary w-fit fill-neutral-content rounded-full"  svg name="github"/>
+                <SocialIcon className="bg-secondary w-fit fill-neutral-content rounded-full"  svg name="email"/>
                 <p className="ml-5 m-auto font-medium">Tanweerkbaig@gmail.com</p>
                  </div>
                  <div className="social-item flex m-auto ">
@@ -184,18 +183,18 @@ export default function AboutMobileSection(props){
                  </p>
                 <div className="m-1 mt-10 flex flex-col w-3/4">
                  <div className="social-item flex ">
-                <SocialIcon className="bg-secondary w-fit fill-neutral-content rounded-full"  svg name="github"/>
+                <SocialIcon className="bg-secondary w-fit  rounded-full" fill="fill-neutral-content"  svg name="github"/>
                 <p className="ml-5 m-auto font-medium">Tanweerkbaig@gmail.com</p>
                  </div>
                  <div className="social-item flex  mt-5 mb-5">
-                <SocialIcon className="bg-secondary w-fit fill-neutral-content rounded-full"  svg name="linkedin"/>
-                <p className="ml-5 m-auto font-medium">/in/tkb/</p>
+                <SocialIcon className="bg-secondary w-fit  rounded-full" fill="fill-neutral-content"  svg name="linkedin"/>
+                <a  href="https://www.linkedin.com/in/tkb/" className="ml-5 m-auto font-medium">/in/tkb/</a>
                  </div>
 
                  <div className="social-item flex ">
-                <SocialIcon className="bg-secondary w-fit fill-neutral-content rounded-full"  svg name="discord"/>
-                <p className="ml-5 m-auto font-medium">{"Cap'n#3825"}</p>
-                 </div>
+                <SocialIcon className="bg-secondary w-fit  rounded-full" fill="fill-neutral-content"  svg name="discord"/>
+                <p onClick={()=>toClipboard("Cap'n#382")} className="ml-5 m-auto font-medium cursor-pointer">{"Cap'n#3825"}</p>                 
+                </div>
 
                  </div>
                 </div>
