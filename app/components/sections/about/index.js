@@ -111,7 +111,7 @@ export default function AboutMobileSection(props){
 
                  <div className="social-item flex ">
                 <SocialIcon className="bg-secondary w-fit  rounded-full lg:m-auto" fill="fill-neutral-content"  svg name="discord"/>
-                <p onClick={()=>toClipboard("Cap'n#382")} className="ml-3 m-auto font-medium cursor-pointer">{"Cap'n#3825"}</p>                 
+                <p  className="ml-3 m-auto font-medium cursor-pointer">{"Cap'n#3825"}</p>                 
                 </div>
 
                  </div>
