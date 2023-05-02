@@ -7,6 +7,7 @@ import Image from "next/image";
 
 
 import SocialIcon from "../socialicon";
+import DrawerIcon from "../icons/DrawerIcon";
 
 export default function SidebarComponent(props){
     console.log(process.env.cdn);
@@ -35,7 +36,7 @@ export default function SidebarComponent(props){
             <li><a href="#experience" className="text-xl font-semibold  hover-bordered">Experience</a></li>
         </ul> */}
         <h1 className="bg-transparent m-auto w-10/12 row-start-7 row-end-7 sm:text-center">Made with NextJS & TailwindCSS [<span href="#" className="underline text-blue-500">Github</span>]</h1>
-        <label for="sidebar" className="drawer-overlay lg:hidden md:visible btn btn-primary drawer-button text-white">  Close</label> 
+        <label for="sidebar" className="drawer-overlay lg:hidden md:visible btn btn-primary drawer-button text-white w-fit mt-1">  <DrawerIcon/></label> 
         
         </div>
     )

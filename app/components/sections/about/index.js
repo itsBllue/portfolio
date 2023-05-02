@@ -65,7 +65,7 @@ const otherTech = [
 function TechTab(props){
     const {content}  = props;
     return(
-        <div className='tech-stack-content flex flex-row  justify-evenly flex-wrap md:flex-nowrap md:justify-start'>
+        <div className='tech-stack-content flex flex-row  justify-evenly flex-wrap xl:flex-nowrap md:justify-start'>
         {content.map(tech => <TechIcon key={tech.name +  "fd"} name={tech.name} icon={tech.img}/>)}
         </div>
     )
@@ -74,9 +74,9 @@ function TechTab(props){
 
 export default function AboutMobileSection(props){
     return(
-        <section id="home" className='exp-content-container bg-slate-900 w-screen lg:w-fit'> 
+        <section id="home" className='exp-content-container bg-slate-900 w-screen lg:w-fit  lg:h-[1024]'> 
         <div className='text-secondary-content bg-secondary w-auto text-2xl about-content-container h-fit p-5 mt-20 ml-5 mr-5 relative'>
-            <h1 className='section-title text-neutral-content font-bold mt-5 absolute -top-12 text-3xl'>About</h1>
+            <h1 className='section-title text-neutral-content font-bold mt-5 absolute -top-12 text-3xl'>About me</h1>
                 <div className='about-me-content-container '>
                     <p className="w-full font-thin pl-2 ">
 
