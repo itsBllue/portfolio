@@ -39,7 +39,7 @@ const profexp=[
 
 export default function ExpSection(props){
 
-    return(<section id="experience" className="bg-slate-900 text-neutral-content grid grid-cols-2 gap-y-0" >
+    return(<section id="experience" className="bg-slate-900 text-neutral-content grid grid-cols-1 md:grid-cols-2 gap-y-5 " >
         {/* <div className="education-container h-fit mt-5 mr-auto ml-10 bg-primary text-primary-content">
             <h1 className="exp-title text-4xl font-bold">Edcuation</h1>
             <div className="education-content-container">
@@ -64,15 +64,15 @@ export default function ExpSection(props){
                 </div>
             </div>
         </div> */}
-        <div className="education-content-container h-fit pb-5 overflow-hidden">
+        <div className="education-content-container h-auto  overflow-hidden">
             <h1 className="text-3xl p-5">Edcuation</h1>
         <TimelineComponent Entries={EdcuEntries} />
         </div>
-        <div className="Professional-content-container mt-5">
+        <div className="Professional-content-container mt-5 pb-10">
             <h1 className="text-3xl p-5 pt-0">Professional Experience</h1>
         <TimelineComponent Entries={profexp} />
         </div>
-        <div className="certificate-content-container mt-5">
+        <div className="certificate-content-container mt-5 pb-20">
             <h1 className="text-3xl p-5">Certifications</h1>
         <TimelineComponent Entries={certs} />
         </div>

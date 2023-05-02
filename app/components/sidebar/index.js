@@ -2,7 +2,7 @@
 "use client";
 
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 
@@ -11,11 +11,10 @@ import SocialIcon from "../socialicon";
 export default function SidebarComponent(props){
     console.log(process.env.cdn);
     return(
-       <div className="drawer-side  bg-secondary">
+       <div className="drawer-side  bg-secondary ">
        {/* <div className=" drawer-side flex-none drawer-contianer w-60 bg-black text-white'"> */}
-        
-        <label for="my-drawer-2" class="drawer-overlay h-40 bg-red-400"> side bar here labl</label> 
-        <div className='drawer-header bg-secondary  pb-5'>
+        {/* <div className="drawer-toggle"></div> */}
+        <div className='drawer-header bg-secondary h-fit overflow-hidden'>
             <Image  className="m-auto  mt-5 rounded-lg overflow-hidden" src={process.env.cdn + "/images/profile.png"} width={200} height={200} alt="profile image" />
             <h1 className="text-center m-5 text-lg font-bold">Tanweer Baig</h1>
             <div className="social-links w-2/5 m-auto rounded flex flex-row bg-slate-400 justify-center">
@@ -23,12 +22,21 @@ export default function SidebarComponent(props){
                 <SocialIcon name="github"/>
             </div>
         </div>
-        <ul class="menu p-10 w-80 bg-secondary text-secondary-content row-span-6">
-            <li><a href="#home" className="text-xl font-semibold" >Home</a></li>
-            <li><a href="#projects" className="text-xl font-semibold">Projects</a></li>
-            <li><a href="#experience" className="text-xl font-semibold">Experience</a></li>
-        </ul>
-        <h1 className="bg-transparent m-auto">Made with NextJS & TailwindCSS [<span href="#" className="underline text-blue-500">Github</span>]</h1>
+        <div className="sidebar-menu m-0">
+
+        <a className="sidebar-btn">Home</a>
+        <a className="sidebar-btn">Projects</a>
+        <a className="sidebar-btn">Experience</a>
+        </div>
+        {/* <ul class="menu p-10 w-80 bg-secondary text-secondary-content row-span-6"> */}
+        {/* <ul class="sidebar-menu w-10 overflow-hidden p-10 bg-secondary text-secondary-content row-span-6 ">
+            <li><a href="#home" className="text-xl font-semibold  hover-bordered" >Home</a></li>
+            <li><a href="#projects" className="text-xl font-semibold hover-bordered">Projects</a></li>
+            <li><a href="#experience" className="text-xl font-semibold  hover-bordered">Experience</a></li>
+        </ul> */}
+        <h1 className="bg-transparent m-auto w-10/12 row-start-7 row-end-7 sm:text-center">Made with NextJS & TailwindCSS [<span href="#" className="underline text-blue-500">Github</span>]</h1>
+        <label for="sidebar" className="drawer-overlay lg:hidden md:visible btn btn-primary drawer-button text-white">  Close</label> 
+        
         </div>
     )
 }
