@@ -74,7 +74,7 @@ function TechTab(props){
 
 export default function AboutMobileSection(props){
     return(
-        <section id="home" className='exp-content-container bg-slate-900 w-screen lg:w-fit  lg:h-[1024]'> 
+        <section id="home" className='exp-content-container bg-slate-900 w-screen lg:w-fit  lg:h-[995px]'> 
         <div className='text-secondary-content bg-secondary w-auto text-2xl about-content-container h-fit p-5 mt-20 ml-5 mr-5 relative'>
             <h1 className='section-title text-neutral-content font-bold mt-5 absolute -top-12 text-3xl'>About me</h1>
                 <div className='about-me-content-container '>
@@ -102,7 +102,7 @@ export default function AboutMobileSection(props){
                 <div className="m-1 mt-10 flex flex-col w-3/4 lg:flex-row lg:justify-between">
                  <div className="social-item flex lg:flex-row">
                 <SocialIcon className="bg-secondary w-fit  rounded-full lg:m-auto" fill="fill-neutral-content"  svg name="github"/>
-                <p className="ml-3 m-auto font-medium">Tanweerkbaig@gmail.com</p>
+                <p className="ml-3 m-auto font-medium cursor-pointer">Tanweerkbaig@gmail.com</p>
                  </div>
                  <div className="social-item flex  mt-5 mb-5">
                 <SocialIcon className="bg-secondary w-fit  rounded-full lg:m-auto" fill="fill-neutral-content"  svg name="linkedin"/>
