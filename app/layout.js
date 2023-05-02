@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className=' text-xs sm:text-sm md:text-base'>
-      <body className="flex flex-col w-screen min-h-screen overflow-x-hidden">
+      <body className="flex flex-col w-screen lg:w-full min-h-screen overflow-x-hidden">
             {/* <div className='drawer drawer-mobile'>
 
               <Sidebar/>

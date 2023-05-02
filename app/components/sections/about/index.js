@@ -157,11 +157,11 @@ function TechTab(props){
 
 export default function AboutMobileSection(props){
     return(
-        <section id="home" className='exp-content-container bg-slate-900 w-screen '> 
+        <section id="home" className='exp-content-container bg-slate-900 w-screen lg:w-fit'> 
         <div className='text-secondary-content bg-secondary w-auto text-2xl about-content-container h-fit p-5 mt-20 ml-5 mr-5 relative'>
             <h1 className='section-title text-neutral-content font-bold mt-5 absolute -top-12 text-3xl'>About</h1>
                 <div className='about-me-content-container '>
-                    <p className="w-11/12 font-thin pl-2 ">
+                    <p className="w-full font-thin pl-2 ">
 
                         <span className="text-3xl font-medium"> Hey there! </span>
                         <br></br>
