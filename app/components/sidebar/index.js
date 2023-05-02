@@ -19,9 +19,9 @@ export default function SidebarComponent(props){
             <Image  className="m-auto  mt-5 rounded-lg overflow-hidden" src={process.env.cdn + "/images/profile.png"} width={200} height={200} alt="profile image" />
             <h1 className="text-center m-5 text-lg font-bold">Tanweer Baig</h1>
             <div className="social-links w-2/5 m-auto rounded flex flex-row bg-slate-400 justify-center pt-1 pb-1">
-                <SocialIcon href="https://www.linkedin.com/in/tkb/" name="linkedin" width={20} svg fill="fill-primary-content" className="m-auto cursor-pointer" />
-                <SocialIcon href="https://github.com/itsBllue" name="github" width={20} svg fill="fill-primary-content" className=" m-auto cursor-pointer"/>
-                <SocialIcon href="https://portfolio-tanweer.s3.eu-west-2.amazonaws.com/CV+-+Tanweer+Baig.pdf"  name="resume"  width={20}  svg  fill="fill-primary-content" className="m-auto cursor-pointer"/>
+                <SocialIcon href="https://www.linkedin.com/in/tkb/" name="linkedin" width={20} svg fill="fill-primary-content hover:fill-black transition-all " className="m-auto cursor-pointer" />
+                <SocialIcon href="https://github.com/itsBllue" name="github" width={20} svg fill="fill-primary-content hover:fill-black transition-all" className=" m-auto cursor-pointer"/>
+                <SocialIcon href="https://portfolio-tanweer.s3.eu-west-2.amazonaws.com/CV+-+Tanweer+Baig.pdf"  name="resume"  width={20}  svg  fill="fill-primary-content hover:fill-black transition-all" className="m-auto cursor-pointer"/>
             </div>
         </div>
         <div className="sidebar-menu m-0">
