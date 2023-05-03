@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Sidebar from './components/sidebar'
+import DrawerIcon from './components/icons/DrawerIcon'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -20,9 +21,13 @@ export default function RootLayout({ children }) {
             </div> */}
           <div className="drawer drawer-mobile">
               <input id="sidebar" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content">
-                  <label label htmlFor="sidebar" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                <div className="drawer-content relative">
                   {children}
+                  <div className="topbar-mobile  fixed  w-screen bg-secondary z-2 flex flex-row pb-1 lg:hidden top-0 left-0 right-0">
+                  <label label htmlFor="sidebar" className=" btn btn-primary drawer-button lg:hidden ml-2 mt-1 "><DrawerIcon/></label>
+
+                  <div className='text-center text-2xl lg:hidden m-auto font-bold text-secondary-content'>Tanweers Portfolio</div>
+                  </div>
                 </div> 
           <Sidebar/>
 

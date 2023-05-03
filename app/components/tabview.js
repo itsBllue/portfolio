@@ -25,7 +25,7 @@ export default function TabView(props){
         setCurrentTab(tabIndex);
     }
     return(
-        <div className="tab-view w-3/5 mb-10 m-auto bg-secondary rounded relative ">
+        <div className="tab-view w-3/4 lg:w-3/4 xl:w-[805px] h-auto mb-10 mt-20 m-auto bg-secondary rounded relative ">
             <h1 className='section-title  text-neutral-content ml-5 '>Tech Stack</h1>
 
         <div className="tabs flex flex-row justify-evenly">
@@ -33,7 +33,7 @@ export default function TabView(props){
             {titles.map((tab,index) => <Tab onClick={() => handleTabClick(index)} key={"d"+index} child={content[index]} active={currentTab === index} title={tab} />)}
         </div>
         <>
-        {content.map((content,index)=><div key={index} className={currentTab === index ? "tab-content text-secondary-content" : "tab-content hidden"}>{content}</div>)}
+        {content.map((content,index)=><div key={index} className={currentTab === index ? "tab-content text-secondary-content h-fit" : "tab-content hidden h-0"}>{content}</div>)}
         </>
 
         {/* <div className="content">
