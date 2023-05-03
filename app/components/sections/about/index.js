@@ -12,10 +12,10 @@ const frontendTech = [
         name:'React', img:'/images/react.png',
     },
     {
-        name:'React Native', img:'/images/react.png',
+        name:'Native', img:'/images/reactnative.svg',
     },
     {
-        name:'Expo', img:'/images/react.png',
+        name:'Expo', img:'/images/expo.svg', width:45, height:45
     },
     {
         name:'NextJS', img:'/images/next.png',
@@ -33,19 +33,19 @@ const frontendTech = [
 
 const backendTech = [
     {
-        name:'NodeJS', img:'/images/node.png',
+        name:'NodeJS', img:'/images/node.png',width:75, height:75
     },
     {
         name:'ExpressJS', img:'/images/express.png',
     },
     {
-        name:'Apollo', img:'/images/express.png',
+        name:'Apollo', img:'/images/apollo.svg',
     },
     {
         name:'GraphQL', img:'/images/graphql.png',
     },
     {
-        name:'MySQL', img:'/images/mongodb.svg',
+        name:'MySQL', img:'/images/mysql.svg',  width:100, height:100
     },
     {
         name:'MongoDB', img:'/images/mongodb.svg',
@@ -54,10 +54,10 @@ const backendTech = [
 
 const otherTech = [
     {
-        name:'Figma', img:'/images/graphql.png',
+        name:'Figma', img:'/images/figma.svg',width:30, height:30
     },
     {
-        name:'AdobeXD', img:'/images/graphql.png',
+        name:'AdobeXD', img:'/images/xd.svg', 
     }
 ]
 
@@ -66,7 +66,7 @@ function TechTab(props){
     const {content}  = props;
     return(
         <div className='tech-stack-content flex flex-row  justify-evenly flex-wrap xl:flex-nowrap md:justify-start'>
-        {content.map(tech => <TechIcon key={tech.name +  "fd"} name={tech.name} icon={tech.img}/>)}
+        {content.map(tech => <TechIcon key={tech.name +  "fd"} name={tech.name} icon={tech.img} width={tech.width || undefined  } height={tech.height || undefined}/>)}
         </div>
     )
 }
