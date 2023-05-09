@@ -2,6 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Sidebar from './components/sidebar'
 import DrawerIcon from './components/icons/DrawerIcon'
+import GoogleAnalytics from './components/googleAnalytics'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -12,7 +13,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className=' text-xs sm:text-sm md:text-base'>
+        
       <body className="flex flex-col w-screen lg:w-full min-h-screen overflow-x-hidden">
+        <GoogleAnalytics/>
             {/* <div className='drawer drawer-mobile'>
 
               <Sidebar/>
