@@ -58,7 +58,10 @@ const otherTech = [
     },
     {
         name:'AdobeXD', img:'/images/xd.svg', 
-    }
+    },
+    {
+        name:'Cloudformation', img:'/images/xd.svg', 
+    },
 ]
 
 
