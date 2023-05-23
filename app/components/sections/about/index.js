@@ -12,7 +12,7 @@ const frontendTech = [
         name:'React', img:'/images/react.png',
     },
     {
-        name:'Nativ1', img:'/images/reactnative.svg',
+        name:'Native', img:'/images/reactnative.svg',
     },
     {
         name:'Expo', img:'/images/expo.svg', width:45, height:45
