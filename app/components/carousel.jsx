@@ -45,7 +45,7 @@ const Carousel = (props)=>{
     };
   
     return (
-      <div className="containerOfCarousel w-full h-full md:w-10/12 md:h-52 lg:h-60  lg:w-2/5  md:m-auto  flex  relative  overflow-hidden">
+      <div className="containerOfCarousel w-full h-full md:w-10/12 md:h-52 lg:h-60 xl:w-3/6  lg:w-auto  md:m-auto  flex  relative  overflow-hidden">
         <AnimatePresence mode="wait" initial={false} custom={direction}>
           <motion.div
           className=" w-full mx-10 text-black relative "
