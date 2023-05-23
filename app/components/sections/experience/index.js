@@ -19,7 +19,7 @@ const EdcuEntries = [
 ]
 
 const certs =[{
-    title:"Developer Assosiate",
+    title:"Developer Associate",
     subtitle:"Amazon Web Services",
     period:"2023"
 }]
