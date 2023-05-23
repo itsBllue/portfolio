@@ -131,7 +131,7 @@ function HomeView(props) {
       exit="exit"
     >
       {projects.map((project, index) =>
-        <motion.li whileHover={{ scale: 1.1 }} key={index} className="item" variants={item} >
+        <motion.li whileHover={{ scale: 0.9 }} key={index} className="item" variants={item} >
           <div key={project.name + index} onClick={() => onClick(index)} className="Project-card-side lg:flex-col lg:ml-5 lg:mr-5 bg-primary shadow-xl mt-10 h-45 rounded-lg overflow-hidden ">
             <div className="project-card-image w-full relative  overflow-hidden lg:h-40"><Image src={process.env.cdn + "/images/testimg.png"} alt="Shoes" className="object-contain  md:object-fill" fill /></div>
             <div className="card-body">
