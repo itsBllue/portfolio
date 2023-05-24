@@ -40,7 +40,10 @@ const Carousel = (props)=>{
 
 
     const paginate = (newDirection) => {
-        const newPage = page + newDirection > props.children.length-1 ? 0 : page + newDirection 
+        // let newPage = 0;
+
+        const newPage = page + newDirection > props.children.length-1 || page + newDirection < 0 ? 0 : page + newDirection 
+        
       setPage([newPage, newDirection]);
     };
   
