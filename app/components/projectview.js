@@ -41,21 +41,21 @@ const Projects = [{
   "name": "FiveM Modifications",
   "description": " This is a description of the project",
   "short": "This project consists of distinct systems that, when integrated, establish a comprehensive framework enabling users to engage in a distinctive gaming experience.",
-  "tags": ["React", "MongoDB", "Typescript", "Javasscript", "Tailwind","NodeJS"],
+  "tags": ["React", "MongoDB", "Typescript", "Javascript", "Tailwind","NodeJS"],
   "images": ["projectshowcase/246044ff6d4a8f144f64b766f49ada4c.jpg","projectshowcase/bbb8a65dbbd113f33738ed608166f468.jpg", "projectshowcase/5efa5c906c68409d218670cb988ac78a.jpg"],
 },
 {
   "name": "E-Commerce Marketplace",
   "description": " This is a description of the project",
-  "short": " This is a short description of the project",
-  "tags": ["React", "MongoDB", "Mongoose"],
+  "short": "The original intent of this project stemmed from a client request. However, I leveraged the opportunity to explore the possibilities that could be achieved with Next.js.",
+  "tags": ["NextJS", "MongoDB", "Tailwind","Javascript"],
   "images": ["react.png"],
 },
 {
   "name": "myUW  - Employee Mobile app",
-  "description": " This is a description of the project",
-  "short": " This is a short description of the project",
-  "tags": ["React", "MongoDB", "Mongoose"],
+  "description": "This project addresses the challenge of implementing a centralized employee company application, facilitating seamless access to important features such as schedules, employee handbooks, and various other resources.",
+  "short": " This project addresses the challenge of implementing a centralized employee company application, facilitating seamless access to important features such as schedules, employee handbooks, and various other resources.",
+  "tags": ["ReactNative", "MySQL", "Python", "Expo","ExpressJS"],
   "images": ["react.png"],
 }]
 
