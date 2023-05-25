@@ -39,14 +39,14 @@ const item = {
 }
 const Projects = [{
   "name": "FiveM Modifications",
-  "description": " This is a description of the project",
+  "description": "This project consists of distinct systems that, when integrated, establish a comprehensive framework enabling users to engage in a distinctive gaming experience.",
   "short": "This project consists of distinct systems that, when integrated, establish a comprehensive framework enabling users to engage in a distinctive gaming experience.",
   "tags": ["React", "MongoDB", "Typescript", "Javascript", "Tailwind","NodeJS"],
   "images": ["projectshowcase/246044ff6d4a8f144f64b766f49ada4c.jpg","projectshowcase/bbb8a65dbbd113f33738ed608166f468.jpg", "projectshowcase/5efa5c906c68409d218670cb988ac78a.jpg"],
 },
 {
   "name": "E-Commerce Marketplace",
-  "description": " This is a description of the project",
+  "description": "The original intent of this project stemmed from a client request. However, I leveraged the opportunity to explore the possibilities that could be achieved with Next.js.",
   "short": "The original intent of this project stemmed from a client request. However, I leveraged the opportunity to explore the possibilities that could be achieved with Next.js.",
   "tags": ["NextJS", "MongoDB", "Tailwind","Javascript"],
   "images": ["react.png"],
@@ -169,7 +169,7 @@ function ProjectView(props) {
       </div>
     </div>
     <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Showcase:</h1>
-    <div className="img-container h-60 mt-5 mb-5">
+    <div className="img-container h-fit mt-5 mb-5">
       <Carousel >
         {project.images.map( (image,indexOfImage)=>{
           return <Image key={image + indexOfImage} draggable={false} src={process.env.cdn + "/images/"+image} alt="" fill />
@@ -178,39 +178,12 @@ function ProjectView(props) {
 
     </div>
 
-    <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">The why:</h1>
-    <div className="project-info-why mx-5 my-5">
-    </div>
-    <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">The how:</h1>
-    <div className="project-info-how mx-5 my-5">
-      {/* {project.theHow} */}
-      <p> {`Okay, so to tackle this problem -  Facing the techincal debt, the high latency, the overall  experience being poor, me  and the team had to figure out what was the cause of the techincal debt. Unforutealy it wasn't as straightforward as I would have liked for it to be as the base the server had been using was very much out-dated, using a code base from 2017!
-      `}</p><br/> 
-      <p>To get passed this hurdle  the decision was straight foward, look for an alternative or build our own base; As we had only 3 developpers at this point, we were very favoured of finding an alternative, however after research of the options available, of which there were 2, we had decieded against finding an alternative and building our own codebase from  scratch in 2022.
-      </p><br/>
-      <p>{`Now this was a big step for us to take, being the other 2 developers weren't experienced in building things from the bottom up, I had to undertake this project on my own, ofcourse I could delegate tasks to the developers once it had a leg to stand on but until that point I had to make the  design decisions and face the challenges myself.
-      `}</p><br/>
-      <p>As the previous  base was written in Lua, there was no  easy way to migrate to a new code base rather creating a new one. For my first decision I had chosen to write the base code in Typescript, this allowed more typesafe code and more readability.
-      This was great as I had also decided the UI would be moved  over to React as it was very robust and simple to create web apps with. So now we had both ends covered and it was time to start.
-      </p><br/>
-      <p>{`Starting with the base, which consisted of the account system,character system,admin system,vehicle system and finally the caching system, I decieded to combine the account, character and admin system into one, calling it 'account', this was done for several reasons, the main being the over use of the 'export' feature which had caused hitching in the previous code base that we used.
-      After tackling the main cause of the issues that had caused techinical debt I had turned my focus onto our other systems that focused on the users actions, systems such as Inventory system, Property system, Shop system. The  main issue I  had spootted here was that the data had not been cached in the previous base as caching wasn't a norm back in the time this base was constructed, thus creating a caching system I had easily gotten rid of this.
-      `}</p><br/>
-      <p>Completing this re-write of the code base took roughly 3 months worth of time, and apon completing it and moving the changes onto prod, the users feedback was exceptional and had allowed us to get back on track to gain  more users, we 4x our growth by having  an active player base of 300 now.
-      </p><br/><p>This change also allowed us to build new and unique UI systems using typescript and react in comparison to vanilla HTML/JS UI which was clunky to say the least.
-      </p>
-      <br/><p>Overall this was a huge sucess and 10/10 I would do it again.  </p>
-    </div>
-    <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">The take away:</h1>
-
-    <div className="project-info-how mx-5 my-5">
-      {project.theTakeAway}
-      <p>TODO: write this section lolz</p>
-    </div>
+    <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Description:</h1>
+        <p className="ml-5 mt-5 mb-5">{project.description}</p>
     <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Techical stack:</h1>
 
     <div className="project-info-stack mx-5 my-5">
-        <div className="tech-stack-container flex bg-secondary-content/10 w-fit m-auto">
+        <div className="tech-stack-container flex bg-secondary-content/10 w-fit m-auto flex-wrap max-w-[90%]">
         {project.tags.map(tech => <TechIcon img={true} key={tech +  "projinf"} name={tech} icon={tech} width={tech.width || undefined  } height={tech.height || undefined}/>)}
           
         </div>
