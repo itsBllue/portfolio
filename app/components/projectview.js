@@ -9,6 +9,7 @@ import SocialIcon from "./socialicon";
 import { CodeBracketSquareIcon, GlobeAltIcon } from "@heroicons/react/24/solid";
 import Carousel from './carousel'
 import TechIcon from './cards/techicon'
+import Link from "next/link";
 const container = {
   hidden: { opacity: 0, scale: 1 },
   visible: {
@@ -50,6 +51,8 @@ const Projects = [{
   "short": "The original intent of this project stemmed from a client request. However, I leveraged the opportunity to explore the possibilities that could be achieved with Next.js.",
   "tags": ["NextJS", "MongoDB", "Tailwind","Javascript"],
   "images": ["react.png"],
+  "code":"https://github.com/itsBllue/E-Commerse",
+  "live":"https://e-commerse-eight.vercel.app/",
 },
 {
   "name": "myUW  - Employee Mobile app",
@@ -161,11 +164,11 @@ function ProjectView(props) {
     className="project-container relative w-full  h-fit pt-16 flex flex-col ">
 
     <div className="social-links absolute right-5 top-5 w-36 m-auto rounded flex flex-row bg-slate-400 justify-evenly px-5 py-2">
-      <div className="tooltip" data-tip={project.codeLink ? "Public repository" : "Private repository"}>
-        {project && project.codeLink && <CodeBracketSquareIcon className="w-7 fill-primary-content hover:fill-black" /> || <CodeBracketSquareIcon className="w-7 fill-primary-content/20 " />}
+      <div className="tooltip" data-tip={project.code ? "Public repository" : "Private repository"}>
+        {project && project.code && <Link href={project.code}><CodeBracketSquareIcon className="w-7 fill-primary-content hover:fill-black" /></Link> || <CodeBracketSquareIcon className="w-7 fill-primary-content/20 " />}
       </div>
-      <div className="tooltip" data-tip={project.liveLink ? "Live demo" : "Demo currently not hosted"}>
-        {project && project.liveLink && <GlobeAltIcon className="w-7 fill-primary-content hover:fill-black" /> || <GlobeAltIcon className="w-7 fill-primary-content/20 " />}
+      <div className="tooltip" data-tip={project.live ? "Live demo" : "Demo currently not hosted"}>
+        {project && project.live && <Link href={project.live}><GlobeAltIcon className="w-7 fill-primary-content hover:fill-black" /></Link> || <GlobeAltIcon className="w-7 fill-primary-content/20 " />}
       </div>
     </div>
     <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Showcase:</h1>
