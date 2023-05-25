@@ -40,12 +40,15 @@ const Carousel = (props)=>{
 
 
     const paginate = (newDirection) => {
-        const newPage = page + newDirection > props.children.length-1 ? 0 : page + newDirection 
+        // let newPage = 0;
+
+        const newPage = page + newDirection > props.children.length-1 || page + newDirection < 0 ? 0 : page + newDirection 
+        
       setPage([newPage, newDirection]);
     };
   
     return (
-      <div className="containerOfCarousel w-full h-full md:w-10/12 md:h-52 lg:h-60 xl:w-3/6  lg:w-auto  md:m-auto  flex  relative  overflow-hidden">
+      <div className="containerOfCarousel w-full h-full md:w-10/12 md:h-52 lg:h-80 xl:w-3/6  lg:w-auto  md:m-auto  flex  relative  overflow-hidden">
         <AnimatePresence mode="wait" initial={false} custom={direction}>
           <motion.div
           className=" w-full mx-10 text-black relative "
