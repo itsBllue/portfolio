@@ -40,15 +40,15 @@ const profexp=[
 export default function ExpSection(props){
 
     return(<section id="experience" className="bg-slate-900 text-neutral-content grid grid-cols-1 md:grid-cols-2 gap-y-" >
-        <div className="education-content-container h-auto  overflow-hidden lg:ml-8">
+        <div className="education-content-container h-auto  overflow-hidden ml-8">
             <h1 className="text-3xl p-5">Edcuation</h1>
         <TimelineComponent Entries={EdcuEntries} />
         </div>
-        <div className="Professional-content-container mt-5 pb-10 lg:ml-8">
+        <div className="Professional-content-container mt-5 pb-10 ml-8">
             <h1 className="text-3xl p-5 pt-0">Professional Experience</h1>
         <TimelineComponent Entries={profexp} />
         </div>
-        <div className="certificate-content-container mt-5 pb-20 lg:ml-8">
+        <div className="certificate-content-container mt-5 pb-20 ml-8">
             <h1 className="text-3xl p-5">Certifications</h1>
         <TimelineComponent Entries={certs} />
         </div>
