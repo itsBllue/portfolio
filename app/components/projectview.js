@@ -22,7 +22,7 @@ const container = {
   },
   exit: {
     opacity: 0,
-    scale:0,
+    scale: 0,
     transition: {
       delayChildren: 0.6,
       staggerChildren: 0.2
@@ -42,24 +42,29 @@ const Projects = [{
   "name": "FiveM Modifications",
   "description": "This project consists of distinct systems that, when integrated, establish a comprehensive framework enabling users to engage in a distinctive gaming experience.",
   "short": "This project consists of distinct systems that, when integrated, establish a comprehensive framework enabling users to engage in a distinctive gaming experience.",
-  "tags": ["React", "MongoDB", "Typescript", "Javascript", "Tailwind","NodeJS"],
-  "images": ["projectshowcase/246044ff6d4a8f144f64b766f49ada4c.jpg","projectshowcase/bbb8a65dbbd113f33738ed608166f468.jpg", "projectshowcase/5efa5c906c68409d218670cb988ac78a.jpg"],
+  "tags": ["React", "MongoDB", "Typescript", "Javascript", "Tailwind", "NodeJS"],
+  "images": ["projectshowcase/246044ff6d4a8f144f64b766f49ada4c.jpg", "projectshowcase/bbb8a65dbbd113f33738ed608166f468.jpg", "projectshowcase/5efa5c906c68409d218670cb988ac78a.jpg"],
 },
 {
   "name": "E-Commerce Marketplace",
   "description": "The original intent of this project stemmed from a client request. However, I leveraged the opportunity to explore the possibilities that could be achieved with Next.js.",
   "short": "The original intent of this project stemmed from a client request. However, I leveraged the opportunity to explore the possibilities that could be achieved with Next.js.",
-  "tags": ["NextJS", "MongoDB", "Tailwind","Javascript"],
-  "images": ["react.png"],
-  "code":"https://github.com/itsBllue/E-Commerse",
-  "live":"https://e-commerse-eight.vercel.app/",
+  "tags": ["NextJS", "MongoDB", "Tailwind", "Javascript"],
+  "images": ["projectshowcase/beb6f48e6a2c0b75ae4b98af65b555ee.png"],
+  "code": "https://github.com/itsBllue/E-Commerse",
+  "live": "https://e-commerse-eight.vercel.app/",
 },
 {
   "name": "myUW  - Employee Mobile app",
   "description": "This project addresses the challenge of implementing a centralized employee company application, facilitating seamless access to important features such as schedules, employee handbooks, and various other resources.",
   "short": " This project addresses the challenge of implementing a centralized employee company application, facilitating seamless access to important features such as schedules, employee handbooks, and various other resources.",
-  "tags": ["ReactNative", "MySQL", "Python", "Expo","ExpressJS"],
-  "images": ["react.png"],
+  "tags": ["ReactNative", "MySQL", "Python", "Expo", "ExpressJS"],
+  "images": ["projectshowcase/mySch.gif"],
+  "imageSettings": {
+    width: 150,
+    height: 50,
+    fill: false
+  }
 }]
 
 export default function ProjectViewComponent(props) {
@@ -137,7 +142,10 @@ function HomeView(props) {
       {projects.map((project, index) =>
         <motion.li whileHover={{ scale: 0.9 }} key={index} className="item" variants={item} >
           <div key={project.name + index} onClick={() => onClick(index)} className="flex flex-col  md:flex-row lg:m-auto lg:mt-5 lg:mb-5 lg:w-4/6 bg-neutral shadow-xl mt-10 h-45 rounded-lg overflow-hidden ">
-            <div className="w-full md:flex-1 relative  overflow-hidden h-72 lg:h-72  "><Image src={process.env.cdn + "/images/"+project.images[0]} alt={project.name} className="" fill /></div>
+            <div className="w-full md:flex-1 relative  overflow-hidden h-72 lg:h-72  ">
+              {project && project.imageSettings && <Image src={process.env.cdn + "/images/" + project.images[0]} alt={project.name} width={project.imageSettings.width || 50} height={project.imageSettings.height || 50} className="m-auto" fill={project.imageSettings.fill || false} />
+                || <Image src={process.env.cdn + "/images/" + project.images[0]} alt={project.name} className="" fill />}
+            </div>
             <div className="card-body md:flex-1">
               <h2 className="card-title text-neutral-content">{project.name}</h2>
               <p className="disc  text-ellipsis  whitespace-pre-line line-clamp-3 mb-1">{project.short}</p>
@@ -174,22 +182,24 @@ function ProjectView(props) {
     <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Showcase:</h1>
     <div className="img-container h-fit mt-5 mb-5">
       <Carousel >
-        {project.images.map( (image,indexOfImage)=>{
-          return <Image key={image + indexOfImage} draggable={false} src={process.env.cdn + "/images/"+image} alt="" fill />
+        {project.images.map((image, indexOfImage) => {
+            return project && project.imageSettings && <Image key={image + indexOfImage} draggable={false} src={process.env.cdn + "/images/" + project.images[0]} alt={project.name} width={project.imageSettings.width || 50} height={project.imageSettings.height || 50} className="m-auto" fill={project.imageSettings.fill || false} />
+            || <Image key={image + indexOfImage} draggable={false} src={process.env.cdn + "/images/" + project.images[0]} alt={project.name} className="" fill />
+
         })}
       </Carousel>
 
     </div>
 
     <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Description:</h1>
-        <p className="ml-5 mt-5 mb-5">{project.description}</p>
+    <p className="ml-5 mt-5 mb-5">{project.description}</p>
     <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Techical stack:</h1>
 
     <div className="project-info-stack mx-5 my-5">
-        <div className="tech-stack-container flex bg-secondary-content/10 w-fit m-auto flex-wrap max-w-[90%]">
-        {project.tags.map(tech => <TechIcon img={true} key={tech +  "projinf"} name={tech} icon={tech} width={tech.width || undefined  } height={tech.height || undefined}/>)}
-          
-        </div>
+      <div className="tech-stack-container flex bg-secondary-content/10 w-fit m-auto flex-wrap max-w-[90%]">
+        {project.tags.map(tech => <TechIcon img={true} key={tech + "projinf"} name={tech} icon={tech} width={tech.width || undefined} height={tech.height || undefined} />)}
+
+      </div>
     </div>
 
   </motion.div>)
