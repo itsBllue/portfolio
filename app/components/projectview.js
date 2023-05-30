@@ -72,6 +72,17 @@ export default function ProjectViewComponent(props) {
   const [currentLocation, setCurrentLocation] = useState(-1);
   const [loading, setIsLoading] = useState(false)
   const [breadcrumbs, setBreadcrumbs] = useState([])
+  const [currentProjectInView, setCurrentProjectInView] = useState();
+
+  
+  useEffect(()=>{
+      if(props.project){
+        setCurrentLocation(props.project)
+        setBreadcrumbs([Projects[props.project].name]);
+        setCurrentProjectInView(Projects[props.project])
+      }
+    },[props])
+    
   useEffect(() => {
     console.log("current location", currentLocation)
     if (currentLocation === -1)
@@ -85,7 +96,6 @@ export default function ProjectViewComponent(props) {
     setCurrentProjectInView(Projects[index])
     console.log('got index', index)
   }
-  const [currentProjectInView, setCurrentProjectInView] = useState();
 
   if (loading)
     return (<div className="">SPinner here</div>)

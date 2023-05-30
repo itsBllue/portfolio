@@ -14,6 +14,6 @@ export default function projectsection(props){
             <p className="font-medium text-black pl-2">Click on a project to learn more!</p></div>
         </div>
 
-            <ProjectView/>
+            <ProjectView project={props.project}/>
     </section>)
 }
