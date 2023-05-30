@@ -5,15 +5,16 @@ import AboutSection from './components/sections/about'
 import ProjectsSection from './components/sections/projects'
 import ExpSection from './components/sections/experience'
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+
 export default function Home(props) {
-
-  const [targetProject, setTargetProject] = useState(false);
-
-  useEffect(() => {
-    console.log(props.searchParams.project)
-    if (props.searchParams.project)
-      return setTargetProject(props.searchParams.project);
-  }, [props])
+  const searchParams = useSearchParams();
+  const [targetProject, setTargetProject] = useState(searchParams.get('project'));
+  console.log(targetProject, 'is target')
+  // useEffect(() => {
+  //   if (props.searchParams.project)
+  //     return setTargetProject(props.searchParams.project);
+  // }, [props])
 
   return (
     <main className="flex  flex-none flex-col bg-white w-fit h-fit text-black  overflow-x-hidden overflow-y-hidden lg:w-full mt-1 lg:mt-0 z-1">
