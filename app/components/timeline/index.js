@@ -24,8 +24,8 @@ export default function TimelineComponent(props) {
            {Entries.map(entry =>{
             return(
                 <>
-            <div className="timeline-entry-marker rounded-full bg-primary h-6 flex w-6 "> </div>
-           <TimelineEntry key={entry.name +"_entry"} title={entry.title} subtitle={entry.subtitle} period={entry.period} />
+            <div key={entry.name +"_entry"} className="timeline-entry-marker rounded-full bg-primary h-6 flex w-6 "> </div>
+           <TimelineEntry  title={entry.title} subtitle={entry.subtitle} period={entry.period} />
                     </>
             )
            }

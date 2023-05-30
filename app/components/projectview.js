@@ -84,7 +84,6 @@ export default function ProjectViewComponent(props) {
     },[props])
 
   useEffect(() => {
-    console.log("current location", currentLocation)
     if (currentLocation === -1)
       return;
     setBreadcrumbs([Projects[currentLocation].name])
@@ -94,7 +93,6 @@ export default function ProjectViewComponent(props) {
     // index 0  = home 1-4 projects
     setCurrentLocation(index)
     setCurrentProjectInView(Projects[index])
-    console.log('got index', index)
   }
 
   if (loading)
@@ -177,7 +175,6 @@ function HomeView(props) {
 function ProjectView(props) {
   //  this will desplay project information.
   const { project } = props;
-  console.log(project.images);
   return (<motion.div variants={container} initial="hidden" animate="visible" exit="exit"
     className="project-container relative w-full  h-fit pt-16 flex flex-col ">
 
@@ -218,7 +215,6 @@ function ProjectView(props) {
 
 function Breadcrumbs(props) {
   const { breadcrumbs, setLocation, setCrumbs } = props;
-  console.log('breadcrumbs should be ', breadcrumbs)
   return (
     <div className="text-lg breadcrumbs  -top-10 absolute font-semibold">
       <ul>

@@ -10,9 +10,9 @@ export default function Home(props) {
   const [targetProject, setTargetProject] = useState(false);
 
   useEffect(() => {
+    console.log(props.searchParams.project)
     if (props.searchParams.project)
       return setTargetProject(props.searchParams.project);
-
   }, [props])
 
   return (
