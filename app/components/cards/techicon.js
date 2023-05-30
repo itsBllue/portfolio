@@ -24,7 +24,6 @@ const ImagePaths = {
 
 export default function techicon(props) {
     const { name, icon, svg, img, svgname, width, height } = props;
-    console.log('tecxxh name', icon, ImagePaths[icon] ? ImagePaths[icon] : "/images/reactnative.svg");
 
     return (
         <div className="flex flex-col justify-evenly p-5 text-center ml-0 m-auto md:m-0">

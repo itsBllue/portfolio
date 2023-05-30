@@ -7,7 +7,6 @@ import SVGComponent from "./icons";
 
 export default function SocialIcon(props){
     const {name, className, svg,href,fill} = props;
-console.log("this is ", svg)
     return(<div  className={className} >
         <a href={href ? href : ""} target="_blank" className={fill}>
         {svg ?  

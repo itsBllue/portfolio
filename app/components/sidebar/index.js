@@ -10,7 +10,6 @@ import SocialIcon from "../socialicon";
 import DrawerIcon from "../icons/DrawerIcon";
 
 export default function SidebarComponent(props) {
-    console.log(process.env.cdn);
     return (
         <div className="drawer-side  bg-secondary ">
             {/* <div className=" drawer-side flex-none drawer-contianer w-60 bg-black text-white'"> */}
