@@ -82,7 +82,7 @@ export default function ProjectViewComponent(props) {
         setCurrentProjectInView(Projects[props.project])
       }
     },[props])
-    
+
   useEffect(() => {
     console.log("current location", currentLocation)
     if (currentLocation === -1)
@@ -177,7 +177,7 @@ function HomeView(props) {
 function ProjectView(props) {
   //  this will desplay project information.
   const { project } = props;
-  console.log(project);
+  console.log(project.images);
   return (<motion.div variants={container} initial="hidden" animate="visible" exit="exit"
     className="project-container relative w-full  h-fit pt-16 flex flex-col ">
 
@@ -191,10 +191,11 @@ function ProjectView(props) {
     </div>
     <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Showcase:</h1>
     <div className="img-container h-fit mt-5 mb-5">
+      
       <Carousel >
         {project.images.map((image, indexOfImage) => {
-            return project && project.imageSettings && <Image key={image + indexOfImage} draggable={false} src={process.env.cdn + "/images/" + project.images[0]} alt={project.name} width={project.imageSettings.width || 50} height={project.imageSettings.height || 50} className="m-auto" fill={project.imageSettings.fill || false} />
-            || <Image key={image + indexOfImage} draggable={false} src={process.env.cdn + "/images/" + project.images[0]} alt={project.name} className="" fill />
+            return project && project.imageSettings && <Image key={image + indexOfImage} draggable={false} src={process.env.cdn + "/images/" + project.images[indexOfImage]} alt={project.name} width={project.imageSettings.width || 50} height={project.imageSettings.height || 50} className="m-auto" fill={project.imageSettings.fill || false} />
+            || <Image key={image + indexOfImage} draggable={false} src={process.env.cdn + "/images/" + project.images[indexOfImage]} alt={project.name} className="" fill />
 
         })}
       </Carousel>
