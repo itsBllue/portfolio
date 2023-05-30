@@ -41,8 +41,8 @@ const Carousel = (props)=>{
 
     const paginate = (newDirection) => {
         // let newPage = 0;
-
         const newPage = page + newDirection > props.children.length-1 || page + newDirection < 0 ? 0 : page + newDirection 
+        console.log('current page', newDirection,  'new', newPage);
         
       setPage([newPage, newDirection]);
     };
@@ -77,7 +77,7 @@ const Carousel = (props)=>{
           >{props.children[page]}</motion.div>
         </AnimatePresence>
 
-        {page !== props.children.length && <ArrowRightCircleIcon className="w-10 h-10  absolute right-0 top-1/2 z-10"onClick={()=> paginate(1)} />}
+        {page !== props.children.length && props.children.length > 1 && <ArrowRightCircleIcon className="w-10 h-10  absolute right-0 top-1/2 z-10"onClick={()=> paginate(1)} />}
         {page !== 0 && <ArrowLeftCircleIcon className="left-0 w-10 h-10 absolute top-1/2 z-10" onClick={()=> paginate(-1)} />}
 
 
