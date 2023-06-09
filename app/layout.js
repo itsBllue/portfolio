@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
                 <div className="drawer-content relative">
                   {children}
                   <div className="topbar-mobile  fixed  w-screen bg-secondary  flex flex-row pb-1 lg:hidden top-0 left-0 right-0 z-20">
-                  <label label htmlFor="sidebar" className=" btn btn-primary drawer-button lg:hidden ml-2 mt-1 "><DrawerIcon/></label>
+                  <label label htmlFor="sidebar" className="btn btn-secondary text-primary fill-primary  lg:hidden ml-2 mt-1 "><DrawerIcon/></label>
 
                   <div className='text-center text-2xl lg:hidden m-auto font-bold text-secondary-content'>Tanweers Portfolio</div>
                   </div>

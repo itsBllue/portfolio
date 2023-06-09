@@ -35,7 +35,7 @@ export default function SidebarComponent(props) {
             <li><a href="#experience" className="text-xl font-semibold  hover-bordered">Experience</a></li>
         </ul> */}
             <h1 className="bg-transparent m-auto w-10/12 row-start-7 row-end-7 sm:text-center">Made with NextJS & TailwindCSS [<a  target="_blank" href="https://github.com/itsBllue/portfolio" className="underline text-blue-500 cursor-pointer">Github</a>]</h1>
-            <label htmlFor="sidebar" className="drawer-overlay lg:hidden md:visible btn btn-primary drawer-button text-white w-fit mt-1">  <DrawerIcon /></label>
+            <label htmlFor="sidebar" className="drawer-overlay lg:hidden md:visible btn btn-primary drawer-button fill-slate-400 text-white w-fit mt-1">  <DrawerIcon /></label>
 
         </div>
     )
