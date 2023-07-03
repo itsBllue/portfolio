@@ -43,7 +43,7 @@ const Projects = [{
   "description": "This project consists of distinct systems that, when integrated, establish a comprehensive framework enabling users to engage in a distinctive gaming experience.",
   "short": "This project consists of distinct systems that, when integrated, establish a comprehensive framework enabling users to engage in a distinctive gaming experience.",
   "tags": ["React", "MongoDB", "Typescript", "Javascript", "Tailwind", "NodeJS"],
-  "images": ["projectshowcase/246044ff6d4a8f144f64b766f49ada4c.jpg", "projectshowcase/bbb8a65dbbd113f33738ed608166f468.jpg", "projectshowcase/5efa5c906c68409d218670cb988ac78a.jpg"],
+  "images": ["projectshowcase/5efa5c906c68409d218670cb988ac78a.png","projectshowcase/246044ff6d4a8f144f64b766f49ada4c.jpg", "projectshowcase/bbb8a65dbbd113f33738ed608166f468.jpg"],
 },
 {
   "name": "E-Commerce Marketplace",
