@@ -1,6 +1,3 @@
-
-
-
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -58,7 +55,7 @@ const Projects = [{
   "name": "myUW  - Employee Mobile app",
   "description": "This project addresses the challenge of implementing a centralized employee company application, facilitating seamless access to important features such as schedules, employee handbooks, and various other resources.",
   "short": " This project addresses the challenge of implementing a centralized employee company application, facilitating seamless access to important features such as schedules, employee handbooks, and various other resources.",
-  "tags": ["ReactNative", "MySQL", "Python", "Expo", "ExpressJS"],
+  "tags": ["React", "Native", "MySQL", "Python", "Expo", "ExpressJS"],
   "images": ["projectshowcase/mySch.gif"],
   "imageSettings": {
     width: 150,
@@ -76,6 +73,7 @@ export default function ProjectViewComponent(props) {
 
   
   useEffect(()=>{
+
       if(props.project){
         setCurrentLocation(props.project)
         setBreadcrumbs([Projects[props.project].name]);
@@ -99,118 +97,258 @@ export default function ProjectViewComponent(props) {
     return (<div className="">SPinner here</div>)
 
 
-  return (<div className="project-view-container w-auto ml-5 mr-5 mt-5 p-5 pt-2 lg:w-full  relative">
+  return (<div className="project-view-container w-full mx-auto p-5 pt-2 lg:p-4 relative">
     <Breadcrumbs setLocation={setCurrentLocation} setCrumbs={setBreadcrumbs} breadcrumbs={breadcrumbs} />
-    <div className="project-view-content bg-secondary text-secondary-content h-fit lg:min-h-350 pr-5 pl-5 pt-1 pb-8 lg:p-0 lg:pb-10  lg:m-5 lg:ml-0 lg:mt-0">
-      <AnimatePresence mode="wait">
-        {currentLocation == -1 ?
-          <motion.div
-            key="modal"
-
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          ><HomeView projects={Projects} onClick={handleViewChange} /></motion.div>
-          :
-          <motion.div
-            key="modal2"
-            className="cont-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          ><ProjectView project={currentProjectInView} /></motion.div>
-        }
-      </AnimatePresence>
-      {/* <AnimatePresence>
-        {currentLocation == -1 ? 
-        <HomeView projects={Projects} onClick={handleViewChange}/> : 
-        <ProjectView project={currentProjectInView}/>}
-    </AnimatePresence> */}
-    </div>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="relative"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-xl blur-lg opacity-50" />
+      <div className="project-view-content relative bg-secondary shadow-xl rounded-xl border border-white/5 overflow-hidden p-2 lg:p-4">
+        <AnimatePresence mode="wait">
+          {currentLocation == -1 ?
+            <motion.div
+              key="modal"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <HomeView projects={Projects} onClick={handleViewChange} />
+            </motion.div>
+            :
+            <motion.div
+              key="modal2"
+              className="cont-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <ProjectView project={currentProjectInView} />
+            </motion.div>
+          }
+        </AnimatePresence>
+      </div>
+    </motion.div>
   </div>
   )
 
 }
 
-
-
-
-
 function HomeView(props) {
   const { projects, onClick } = props;
 
-  return (<motion.div variants={container} initial="hidden" animate="visible" exit="exit" className="projects-view-home flex  flex-col lg:flex-row justify-between lg:justify-center overflow-hidden ">
-    <motion.ul
-      className="projects-view-home flex  flex-col  justify-between  overflow-hidden "
-      variants={container}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
+  return (
+    <motion.div 
+      variants={container} 
+      initial="hidden" 
+      animate="visible" 
+      exit="exit" 
+      className="projects-view-home p-4 flex flex-col lg:flex-row justify-between lg:justify-center overflow-hidden"
     >
-      {projects.map((project, index) =>
-        <motion.li whileHover={{ scale: 0.9 }} key={index} className="item" variants={item} >
-          <div key={project.name + index} onClick={() => onClick(index)} className="flex flex-col  md:flex-row lg:m-auto lg:mt-5 lg:mb-5 lg:w-4/6 bg-neutral shadow-xl mt-10 h-45 rounded-lg overflow-hidden ">
-            <div className="w-full md:flex-1 relative  overflow-hidden h-72 lg:h-72  ">
-              {project && project.imageSettings && <Image src={process.env.cdn + "/images/" + project.images[0]} alt={project.name} width={project.imageSettings.width || 50} height={project.imageSettings.height || 50} className="m-auto" fill={project.imageSettings.fill || false} />
-                || <Image src={process.env.cdn + "/images/" + project.images[0]} alt={project.name} className="" fill />}
-            </div>
-            <div className="card-body md:flex-1">
-              <h2 className="card-title text-neutral-content">{project.name}</h2>
-              <p className="disc  text-ellipsis  whitespace-pre-line line-clamp-3 mb-1">{project.short}</p>
-              <div className="card-actions justify-end flex flex-wrap max-h-12 overflow-hidden">
-                {project.tags.map((tag, in2) => <div key={"ProjectTab" + index + "|" + in2} className="badge badge-outline badge-info">{tag}</div>)}
-
+      <motion.ul
+        className="projects-view-home flex flex-col justify-between overflow-hidden gap-4"
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        {projects.map((project, index) => (
+          <motion.li 
+            whileHover={{ scale: 1.02 }} 
+            whileTap={{ scale: 0.98 }}
+            key={index} 
+            className="item" 
+            variants={item}
+          >
+            <div 
+              key={project.name + index} 
+              onClick={() => onClick(index)} 
+              className="flex flex-col md:flex-row lg:m-auto lg:w-[800px] backdrop-blur-sm border border-white/5 shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+            >
+              <div className="w-full md:w-1/2 relative overflow-hidden h-56 lg:h-48 group">
+                {project && 
+                  <Image 
+                    src={`${process.env.NEXT_PUBLIC_CDN_URL}/images/${project.images[0]}`}
+                    alt={project.name}
+                    width={800}
+                    height={600}
+                    className="transition-transform duration-300 group-hover:scale-105 object-cover" 
+                    priority
+                  />
+                }
               </div>
-
+              <div className="card-body md:w-1/2 bg-secondary/80 backdrop-blur-sm p-4">
+                <h2 className="card-title text-primary mb-2 text-lg">{project.name}</h2>
+                <p className="disc text-ellipsis whitespace-pre-line line-clamp-2 mb-3 text-secondary-content/90 text-sm">{project.short}</p>
+                <div className="card-actions justify-end flex flex-wrap gap-1.5">
+                  {project.tags.map((tag, in2) => (
+                    <div 
+                      key={"ProjectTab" + index + "|" + in2} 
+                      className="px-2 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
+                    >
+                      {tag}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </motion.li>
-      )}
-    </motion.ul>
-  </motion.div>
-
+          </motion.li>
+        ))}
+      </motion.ul>
+    </motion.div>
   )
 }
 
 function ProjectView(props) {
-  //  this will desplay project information.
   const { project } = props;
-  return (<motion.div variants={container} initial="hidden" animate="visible" exit="exit"
-    className="project-container relative w-full  h-fit pt-16 flex flex-col ">
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [imageError, setImageError] = useState(false);
 
-    <div className="social-links absolute right-5 top-5 w-36 m-auto rounded flex flex-row bg-slate-400 justify-evenly px-5 py-2">
-      <div className="tooltip" data-tip={project.code ? "Public repository" : "Private repository"}>
-        {project && project.code && <Link href={project.code}><CodeBracketSquareIcon className="w-7 fill-primary-content hover:fill-black" /></Link> || <CodeBracketSquareIcon className="w-7 fill-primary-content/20 " />}
+  useEffect(() => {
+    console.log('Loading image:', `${process.env.NEXT_PUBLIC_CDN_URL}/images/${project.images[selectedImage]}`);
+  }, [selectedImage, project]);
+
+  const handleImageError = (e) => {
+    console.error('Image failed to load:', e.target.src);
+    setImageError(true);
+  };
+
+  return (
+    <motion.div 
+      variants={container} 
+      initial="hidden" 
+      animate="visible" 
+      exit="exit"
+      className="project-container relative w-full h-fit flex flex-col items-center space-y-6"
+    >
+      <div className="w-full max-w-4xl px-4 py-6">
+        <div className="social-links absolute right-5 top-5 flex gap-4">
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative"
+          >
+            {project.github && (
+              <a 
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-sm btn-primary gap-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" className="fill-current">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+            )}
+          </motion.div>
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative"
+          >
+            {project.live && (
+              <a 
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-sm btn-primary gap-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Live Demo
+              </a>
+            )}
+          </motion.div>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-4">
+            <h1 className="text-2xl font-bold text-primary">{project.name}</h1>
+            <div className="h-1 flex-1 bg-primary/20 rounded-full"></div>
+          </div>
+
+          <div className="img-container rounded-xl overflow-hidden border border-white/5">
+            <div className="relative w-full h-[400px] lg:h-[450px] overflow-hidden">
+              {imageError ? (
+                <div className="w-full h-full flex items-center justify-center bg-secondary/30">
+                  <p className="text-primary">Image failed to load</p>
+                </div>
+              ) : (
+                <Image 
+                  draggable={false} 
+                  src={`${process.env.NEXT_PUBLIC_CDN_URL}/images/${project.images[selectedImage]}`}
+                  alt={`${project.name} showcase ${selectedImage + 1}`}
+                  width={project.imageSettings?.width || 1200}
+                  height={project.imageSettings?.height || 800}
+                  className="object-contain w-full h-full"
+                  priority
+                  onError={handleImageError}
+                />
+              )}
+              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none">
+                  {project.images.map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedImage(index)}
+                      className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
+                        selectedImage === index ? 'border-primary' : 'border-transparent'
+                      }`}
+                    >
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_CDN_URL}/images/${image}`}
+                        alt={`${project.name} thumbnail ${index + 1}`}
+                        width={64}
+                        height={48}
+                        className="object-cover w-full h-full"
+                        onError={handleImageError}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div className="lg:col-span-2">
+              <h2 className="text-lg font-semibold text-primary mb-2">Description</h2>
+              <p className="text-secondary-content/90 leading-relaxed">{project.description}</p>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <h2 className="text-lg font-semibold text-primary">Tech Stack</h2>
+                  <div className="h-1 flex-1 bg-primary/20 rounded-full"></div>
+                </div>
+
+                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+                  {project.tags.map((tech) => (
+                    <div 
+                      key={tech} 
+                      className="w-full"
+                    >
+                      <TechIcon 
+                        name={tech} 
+                        icon={tech} 
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="tooltip" data-tip={project.live ? "Live demo" : "Demo currently not hosted"}>
-        {project && project.live && <Link href={project.live}><GlobeAltIcon className="w-7 fill-primary-content hover:fill-black" /></Link> || <GlobeAltIcon className="w-7 fill-primary-content/20 " />}
-      </div>
-    </div>
-    <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Showcase:</h1>
-    <div className="img-container h-fit mt-5 mb-5">
-      
-      <Carousel >
-        {project.images.map((image, indexOfImage) => {
-            return project && project.imageSettings && <Image key={image + indexOfImage} draggable={false} src={process.env.cdn + "/images/" + project.images[indexOfImage]} alt={project.name} width={project.imageSettings.width || 50} height={project.imageSettings.height || 50} className="m-auto" fill={project.imageSettings.fill || false} />
-            || <Image key={image + indexOfImage} draggable={false} src={process.env.cdn + "/images/" + project.images[indexOfImage]} alt={project.name} className="" fill />
-
-        })}
-      </Carousel>
-
-    </div>
-
-    <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Description:</h1>
-    <p className="ml-5 mt-5 mb-5">{project.description}</p>
-    <h1 className="ml-5 bg-slate-400/80 w-fit pl-1  pr-3 font-semibold  text-black">Techical stack:</h1>
-
-    <div className="project-info-stack mx-5 my-5">
-      <div className="tech-stack-container flex bg-secondary-content/10 w-fit m-auto flex-wrap max-w-[90%]">
-        {project.tags.map(tech => <TechIcon img={true} key={tech + "projinf"} name={tech} icon={tech} width={tech.width || undefined} height={tech.height || undefined} />)}
-
-      </div>
-    </div>
-
-  </motion.div>)
+    </motion.div>
+  );
 }
 
 function Breadcrumbs(props) {
