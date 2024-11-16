@@ -11,8 +11,8 @@ const SkillCard = ({ name, icon, category, index }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative group"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-lg blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
-      <div className="relative p-3 rounded-lg backdrop-blur-md border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg blur-md group-hover:blur-lg transition-all duration-300 opacity-0 group-hover:opacity-100" />
+      <div className="relative p-3 rounded-lg backdrop-blur-sm border border-white/5 bg-secondary hover:bg-secondary-focus/80 transition-all duration-300">
         <div className="flex items-center gap-3">
           <div className="relative w-8 h-8 flex-shrink-0">
             <img 
@@ -42,18 +42,18 @@ export default function SkillsShowcase({ titles, content }) {
         transition={{ duration: 0.5 }}
         className="relative"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-xl blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-xl blur-lg opacity-50" />
         
-        <div className="relative bg-secondary/30 backdrop-blur-xl rounded-xl border border-white/10 overflow-hidden">
-          <div className="relative p-4 border-b border-white/10">
+        <div className="relative bg-secondary shadow-xl rounded-xl border border-white/5 overflow-hidden">
+          <div className="relative p-4 border-b border-white/5">
             <h1 className="text-xl font-bold text-neutral-content">Tech Stack</h1>
             <p className="text-xs text-secondary-content/70 mt-1">Technologies I work with</p>
             
             <motion.div
-              className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10"
+              className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl -z-10"
               animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
+                scale: [1, 1.1, 1],
+                opacity: [0.1, 0.15, 0.1],
               }}
               transition={{
                 duration: 4,
