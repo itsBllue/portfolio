@@ -28,27 +28,31 @@ export default function SidebarComponent() {
                     </h1>
                     
                     <div className="flex justify-center gap-6 p-3 rounded-lg bg-secondary-content/5">
+                        <a href="https://www.linkedin.com/in/tkb/" target="_blank" rel="noopener noreferrer">
                         <SocialIcon 
-                            href="https://www.linkedin.com/in/tkb/" 
                             name="linkedin" 
                             width={24} 
-                            svg="fill-secondary-content hover:fill-primary transition-all duration-200" 
+                            fill="fill-secondary-content hover:fill-primary transition-all duration-200 cursor-pointer"  
+                            svg
                             className="cursor-pointer" 
                         />
+                        </a>
+                        <a href="https://github.com/itsBllue"  target="_blank" rel="noopener noreferrer">
                         <SocialIcon 
-                            href="https://github.com/itsBllue" 
                             name="github" 
                             width={24} 
-                            svg="fill-secondary-content hover:fill-primary transition-all duration-200" 
-                            className="cursor-pointer" 
+                            fill="fill-secondary-content hover:fill-primary transition-all duration-200 cursor-pointer" 
+                            svg
                         />
+                        </a>
+                        <a href="https://portfolio-tanweer.s3.eu-west-2.amazonaws.com/CV+-+Tanweer+Baig.pdf"  target="_blank" rel="noopener noreferrer">
                         <SocialIcon 
-                            href="https://portfolio-tanweer.s3.eu-west-2.amazonaws.com/CV+-+Tanweer+Baig.pdf" 
                             name="resume" 
                             width={24} 
-                            svg="fill-secondary-content hover:fill-primary transition-all duration-200" 
-                            className="cursor-pointer" 
+                            fill="fill-secondary-content hover:fill-primary transition-all duration-200 cursor-pointer" 
+                            svg
                         />
+                        </a>
                     </div>
                 </div>
 
@@ -69,7 +73,7 @@ export default function SidebarComponent() {
 
                 {/* Footer */}
                 <footer className="p-4 text-sm text-center border-t border-secondary-content/10">
-                    <p className="text-secondary-content/60">
+                    <p className="text-secondary-content/60 text-xs ">
                         Made with NextJS & TailwindCSS 
                         [<a 
                             href="https://github.com/itsBllue/portfolio" 
@@ -78,7 +82,7 @@ export default function SidebarComponent() {
                             className="inline-block text-primary hover:underline ml-1"
                         >
                             Github
-                        </a>]
+                        </a>    ]
                     </p>
                 </footer>
             </aside>

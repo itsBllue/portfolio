@@ -87,21 +87,28 @@ const otherTech = [
     }
 ]
 
-const SocialLink = ({ icon, text, href, onClick }) => (
-    <motion.div 
-        className="flex items-center gap-3 p-3 rounded-lg backdrop-blur-sm border border-white/5 bg-secondary hover:bg-secondary-focus/80 transition-all duration-300 cursor-pointer"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        onClick={onClick}
-    >
-        <SocialIcon className="w-6 h-6" fill="fill-neutral-content" svg name={icon}/>
-        {href ? (
-            <a href={href} className="text-sm font-medium text-secondary-content hover:text-primary transition-colors">{text}</a>
-        ) : (
-            <p className="text-sm font-medium text-secondary-content hover:text-primary transition-colors">{text}</p>
-        )}
-    </motion.div>
-);
+const SocialLink = ({ icon, text, href, onClick }) => {
+    const content = (
+        <motion.div 
+            className="flex items-center gap-3 p-3 rounded-lg backdrop-blur-sm border border-white/5 bg-secondary hover:bg-secondary-focus/80 transition-all duration-300 cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+        >
+            <SocialIcon className="w-6 h-6" fill="fill-neutral-content" svg name={icon} href={href}/>
+            <span className="text-sm font-medium text-secondary-content hover:text-primary transition-colors ">{text}</span>
+        </motion.div>
+    );
+
+    return href ? (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+            {content}
+        </a>
+    ) : (
+        <div onClick={onClick}>
+            {content}
+        </div>
+    );
+};
 
 function TechTab(props){
     const {content}  = props;
