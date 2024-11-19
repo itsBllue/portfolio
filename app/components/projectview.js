@@ -73,7 +73,6 @@ export default function ProjectViewComponent(props) {
 
   
   useEffect(()=>{
-
       if(props.project){
         setCurrentLocation(props.project)
         setBreadcrumbs([Projects[props.project].name]);
@@ -207,7 +206,11 @@ function ProjectView(props) {
   const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
-    console.log('Loading image:', `${process.env.NEXT_PUBLIC_CDN_URL}/images/${project.images[selectedImage]}`);
+    if (!process.env.NEXT_PUBLIC_CDN_URL) {
+      console.error('CDN URL is not defined');
+    }
+    console.log('CDN URL:', process.env.NEXT_PUBLIC_CDN_URL);
+    console.log('Full image path:', `${process.env.NEXT_PUBLIC_CDN_URL}/${project.images[selectedImage]}`);
   }, [selectedImage, project]);
 
   const handleImageError = (e) => {
@@ -282,7 +285,7 @@ function ProjectView(props) {
               ) : (
                 <Image 
                   draggable={false} 
-                  src={`${process.env.NEXT_PUBLIC_CDN_URL}/images/${project.images[selectedImage]}`}
+                  src={process.env.NEXT_PUBLIC_CDN_URL ? `${process.env.NEXT_PUBLIC_CDN_URL}/${project.images[selectedImage]}` : ''}
                   alt={`${project.name} showcase ${selectedImage + 1}`}
                   width={project.imageSettings?.width || 1200}
                   height={project.imageSettings?.height || 800}
