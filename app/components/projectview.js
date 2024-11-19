@@ -292,6 +292,8 @@ function ProjectView(props) {
                   className="object-contain w-full h-full"
                   priority
                   onError={handleImageError}
+                  unoptimized={true}
+                  loader={({ src }) => src}
                 />
               )}
               <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
