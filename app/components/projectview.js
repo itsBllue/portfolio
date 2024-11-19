@@ -73,6 +73,7 @@ export default function ProjectViewComponent(props) {
 
   
   useEffect(()=>{
+
       if(props.project){
         setCurrentLocation(props.project)
         setBreadcrumbs([Projects[props.project].name]);
@@ -206,11 +207,7 @@ function ProjectView(props) {
   const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
-    if (!process.env.NEXT_PUBLIC_CDN_URL) {
-      console.error('CDN URL is not defined');
-    }
-    console.log('CDN URL:', process.env.NEXT_PUBLIC_CDN_URL);
-    console.log('Full image path:', `${process.env.NEXT_PUBLIC_CDN_URL}/${project.images[selectedImage]}`);
+    console.log('Loading image:', `${process.env.NEXT_PUBLIC_CDN_URL}/images/${project.images[selectedImage]}`);
   }, [selectedImage, project]);
 
   const handleImageError = (e) => {
@@ -278,24 +275,18 @@ function ProjectView(props) {
 
           <div className="img-container rounded-xl overflow-hidden border border-white/5">
             <div className="relative w-full h-[400px] lg:h-[450px] overflow-hidden">
-              {imageError ? (
-                <div className="w-full h-full flex items-center justify-center bg-secondary/30">
-                  <p className="text-primary">Image failed to load</p>
-                </div>
-              ) : (
+
                 <Image 
                   draggable={false} 
-                  src={process.env.NEXT_PUBLIC_CDN_URL ? `${process.env.NEXT_PUBLIC_CDN_URL}/${project.images[selectedImage]}` : ''}
+                  src={`${process.env.NEXT_PUBLIC_CDN_URL}/images/${project.images[selectedImage]}`}
                   alt={`${project.name} showcase ${selectedImage + 1}`}
                   width={project.imageSettings?.width || 1200}
                   height={project.imageSettings?.height || 800}
                   className="object-contain w-full h-full"
                   priority
                   onError={handleImageError}
-                  unoptimized={true}
-                  loader={({ src }) => src}
                 />
-              )}
+              
               <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
                 <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none">
                   {project.images.map((image, index) => (
