@@ -1,127 +1,225 @@
-
-
 "use client";
-import Image from "next/image";
 import React from "react";
 import TechIcon from "../../cards/techicon";
 import TabView from "../../tabview";
 import SocialIcon from "../../socialicon";
 import toClipboard from "@/app/utils/toClipboard";
+import { motion } from "framer-motion";
+
 const frontendTech = [
     {
-        name:'React', img:'/images/react.png',
+        name: 'React',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
     },
     {
-        name:'Native', img:'/images/reactnative.svg',
+        name: 'React Native',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
     },
     {
-        name:'Expo', img:'/images/expo.svg', width:45, height:45
+        name: 'Expo',
+        img: 'https://www.vectorlogo.zone/logos/expo/expo-icon.svg',
+        width: 45,
+        height: 45
     },
     {
-        name:'NextJS', img:'/images/next.png',
+        name: 'Next.js',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg'
     },
     {
-        name:'Tailwind', img:'/images/tailwind.svg',
+        name: 'Tailwind',
+        img: 'https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg'
     },
     {
-        name:'Typescript', img:'/images/ts.png',
+        name: 'TypeScript',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'
     },
     {
-        name:'Javascript', img:'/images/js.png',
+        name: 'JavaScript',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
     }
 ]
 
 const backendTech = [
     {
-        name:'NodeJS', img:'/images/node.png',width:75, height:75
+        name: 'Node.js',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+        width: 75,
+        height: 75
     },
     {
-        name:'ExpressJS', img:'/images/express.png',
+        name: 'Express',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg'
     },
     {
-        name:'Apollo', img:'/images/apollo.svg',
+        name: 'Apollo',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg'
     },
     {
-        name:'GraphQL', img:'/images/graphql.png',
+        name: 'GraphQL',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg'
     },
     {
-        name:'MySQL', img:'/images/mysql.svg',  width:100, height:100
+        name: 'MySQL',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+        width: 100,
+        height: 100
     },
     {
-        name:'MongoDB', img:'/images/mongodb.svg',
+        name: 'MongoDB',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg'
     }
 ]
 
 const otherTech = [
     {
-        name:'Figma', img:'/images/figma.svg',width:30, height:30
+        name: 'Figma',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
+        width: 30,
+        height: 30
     },
     {
-        name:'AdobeXD', img:'/images/xd.svg', 
+        name: 'Adobe XD',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg'
     },
     {
-        name:'Cloudformation', img:'/images/xd.svg', 
-    },
+        name: 'AWS',
+        img: 'https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg'
+    }
 ]
 
+const SocialLink = ({ icon, text, href, onClick }) => {
+    const content = (
+        <motion.div 
+            className="flex items-center gap-3 p-3 rounded-lg backdrop-blur-sm border border-white/5 bg-secondary hover:bg-secondary-focus/80 transition-all duration-300 cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+        >
+            <SocialIcon className="w-6 h-6" fill="fill-neutral-content" svg name={icon} href={href}/>
+            <span className="text-sm font-medium text-secondary-content hover:text-primary transition-colors ">{text}</span>
+        </motion.div>
+    );
+
+    return href ? (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+            {content}
+        </a>
+    ) : (
+        <div onClick={onClick}>
+            {content}
+        </div>
+    );
+};
 
 function TechTab(props){
     const {content}  = props;
     return(
-        <div className='tech-stack-content flex flex-row  justify-evenly flex-wrap xl:flex-nowrap md:justify-start'>
-        {content.map(tech => <TechIcon key={tech.name +  "fd"} name={tech.name} icon={tech.img} width={tech.width || undefined  } height={tech.height || undefined}/>)}
+        <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 p-4'>
+            {content.map((tech, index) => (
+                <motion.div
+                    key={tech.name + "fd"}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className="bg-secondary-focus/30 backdrop-blur-sm rounded-lg hover:bg-secondary-focus/50 transition-colors duration-300"
+                >
+                    <TechIcon
+                        name={tech.name}
+                        icon={tech.img}
+                        width={tech.width || undefined}
+                        height={tech.height || undefined}
+                    />
+                </motion.div>
+            ))}
         </div>
     )
 }
 
+export default function AboutMobileSection() {
+    return (
+        <section id="home" className="w-full bg-slate-900"> 
+            <div className="w-full max-w-4xl mx-auto px-4 py-8 mt-12">
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="relative d"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-xl blur-lg opacity-50" />
+                    
+                    <div className="relative bg-secondary shadow-xl rounded-xl border border-white/5 overflow-hidden">
+                        <div className="relative p-4 border-b border-white/5">
+                            <h1 className="text-xl font-bold text-neutral-content">About me</h1>
+                            <motion.div
+                                className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl -z-10"
+                                animate={{
+                                    scale: [1, 1.1, 1],
+                                    opacity: [0.1, 0.15, 0.1],
+                                }}
+                                transition={{
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                            />
+                        </div>
 
-export default function AboutMobileSection(props){
-    return(
-        <section id="home" className='exp-content-container bg-slate-900 w-screen lg:w-fit  lg:h-[995px]'> 
-        <div className='text-secondary-content bg-secondary w-auto text-2xl about-content-container h-fit p-5 mt-20 ml-5 mr-5 relative'>
-            <h1 className='section-title text-neutral-content font-bold mt-5 absolute -top-12 text-3xl'>About me</h1>
-                <div className='about-me-content-container '>
-                    <p className="w-full font-thin pl-2 ">
+                        <div className="p-4 space-y-6">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                                className="space-y-4"
+                            >
+                                <h2 className="text-2xl font-medium text-primary">Hey there! 👋</h2>
+                                <p className="text-secondary-content/90 leading-relaxed">
+                                    I&apos;m a software developer with a passion for creativity and continuous growth. 
+                                    I&apos;m always on the lookout for new technologies and ways to improve my skills, and I love learning from others&apos; feedback.
+                                </p>
+                                <p className="text-secondary-content/90 leading-relaxed">
+                                    My experience with different development cycles and stacks has helped me become a quick learner and adaptable problem solver.
+                                    I&apos;m a team player and love working with others to create innovative solutions. In fact, 
+                                    I&apos;m a natural leader and enjoy guiding and motivating my teammates towards success.
+                                </p>
+                                <p className="text-lg font-medium text-primary">
+                                    Let&apos;s create something amazing together!
+                                </p>
+                            </motion.div>
 
-                        <span className="text-3xl font-medium"> Hey there! </span>
-                        <br></br>
-                        <br></br>
-                        <span className="">{`
-                        
-                        I'm a software developer with a passion for creativity and continuous growth. 
-                        I'm always on the lookout for new technologies and ways to improve my skills, and I love learning from others' feedback. 
-                        My experience with different development cycles and stacks has helped me become a quick learner and adaptable problem solver.
-                        I'm a team player and love working with others to create innovative solutions. In fact, 
-                        I'm a natural leader and enjoy guiding and motivating my teammates towards success.
-                        `}
-                <br></br> 
-                <br></br> 
-                <span className="font-medium">
-                    {`Let's create something amazing together!`}
-                    </span>
-                            </span> 
-            
-                 </p>
-                <div className="m-1 mt-10 flex flex-col w-3/4 lg:flex-row lg:justify-between">
-                 <div className="social-item flex lg:flex-row">
-                <SocialIcon className="bg-secondary w-fit  rounded-full lg:m-auto" fill="fill-neutral-content"  svg name="github"/>
-                <p className="ml-3 m-auto font-medium cursor-pointer">Tanweerkbaig@gmail.com</p>
-                 </div>
-                 <div className="social-item flex  mt-5 mb-5">
-                <SocialIcon className="bg-secondary w-fit  rounded-full lg:m-auto" fill="fill-neutral-content"  svg name="linkedin"/>
-                <a  href="https://www.linkedin.com/in/tkb/" className="ml-5 m-auto font-medium">/in/tkb/</a>
-                 </div>
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.4 }}
+                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+                            >
+                                <SocialLink 
+                                    icon="github" 
+                                    text="ItsBllue" 
+                                    href="https://github.com/itsBllue"
+                                />
+                                <SocialLink 
+                                    icon="linkedin" 
+                                    text="/in/tkb/" 
+                                    href="https://www.linkedin.com/in/tkb/"
+                                />
+                                <SocialLink 
+                                icon="email" 
+                                text="Tanweerkbaig@gmail.com" 
+                                onClick={() => toClipboard("Tanweerkbaig@gmail.com")}
+                                />
+                            </motion.div>
+                        </div>
+                    </div>
+                </motion.div>
 
-                 <div className="social-item flex ">
-                <SocialIcon className="bg-secondary w-fit  rounded-full lg:m-auto" fill="fill-neutral-content"  svg name="discord"/>
-                <p  className="ml-3 m-auto font-medium cursor-pointer">{"Cap'n#3825"}</p>                 
-                </div>
-
-                 </div>
-                </div>
-        </div>
-        <TabView titles={['Frontend', 'Backend', 'Other skills']} content={[<TechTab key="1" content={frontendTech}/>, <TechTab key="2" content={backendTech}/>, <TechTab key="3" content={otherTech}/>]}/>
-        
+                <TabView 
+                    titles={['Frontend', 'Backend', 'Other skills']} 
+                    content={[
+                        <TechTab key="1" content={frontendTech}/>, 
+                        <TechTab key="2" content={backendTech}/>, 
+                        <TechTab key="3" content={otherTech}/>
+                    ]}
+                />
+            </div>
         </section>
-    )
+    );
 }

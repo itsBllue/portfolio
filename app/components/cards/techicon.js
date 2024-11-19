@@ -2,51 +2,112 @@
 import React from "react";
 import Image from "next/image";
 import SVGComponent from "../icons";
+import { CDN_URL } from "@/app/config";
+import { motion } from "framer-motion";
 
 const ImagePaths = {
-    React: '/images/react.png',
-    Native: '/images/reactnative.svg',
-    Expo: '/images/expo.svg',
-    NextJS: '/images/next.png',
-    Tailwind: '/images/tailwind.svg',
-    Typescript: '/images/ts.png',
-    Javascript: '/images/js.png',
-    NodeJS: '/images/node.png',
-    ExpressJS: '/images/express.png',
-    Apollo: '/images/apollo.svg',
-    GraphQL: '/images/graphql.png',
-    MySQL: '/images/mysql.svg',
-    MongoDB: '/images/mongodb.svg',
-    Figma: '/images/figma.svg',
-    AdobeXD: '/images/xd.svg',
-    Cloudformation: '/images/xd.svg',
+    React: 'react.png',
+    Native: 'reactnative.svg',
+    ReactNative: 'reactnative.svg',
+    Expo: 'expo.svg',
+    NextJS: 'next.png',
+    Tailwind: 'tailwind.svg',
+    Typescript: 'ts.png',
+    Javascript: 'js.png',
+    NodeJS: 'node.png',
+    ExpressJS: 'express.png',
+    Apollo: 'apollo.svg',
+    GraphQL: 'graphql.png',
+    MySQL: 'mysql.svg',
+    MongoDB: 'mongodb.svg',
+    Figma: 'figma.svg',
+    AdobeXD: 'xd.svg',
+    Cloudformation: 'xd.svg',
+    Python: 'python.svg'
 };
 
-export default function techicon(props) {
+export default function TechIcon(props) {
     const { name, icon, svg, img, svgname, width, height } = props;
 
+    const getImagePath = (iconName) => {
+        const imagePath = ImagePaths[iconName];
+        if (!imagePath) {
+            console.warn(`No image path found for icon: ${iconName}`);
+            return null;
+        }
+        return `${CDN_URL}/images/${imagePath}`;
+    };
+
     return (
-        <div className="flex flex-col justify-evenly p-5 text-center ml-0 m-auto md:m-0">
-            {svg ? (
-                <SVGComponent name={svgname} width={45} height={45} />
-            ) : img ? (
-                <Image
-                    className="m-auto p-1 mb-2"
-                    src={ImagePaths[icon] ? process.env.cdn + ImagePaths[icon] : process.env.cdn + "/images/reactnative.svg"}
-                    alt={name}
-                    width={width || 45}
-                    height={height || 45}
-                />
-            ) : (
-                <Image
-                    className="m-auto p-1 mb-2"
-                    src={process.env.cdn + icon}
-                    alt={name}
-                    width={width || 45}
-                    height={height || 45}
-                />
-            )}
-            <p className="text-xl font-medium">{name}</p>
-        </div>
+        <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-full"
+        >
+            <div className="relative p-2 rounded-lg backdrop-blur-sm border border-white/5 bg-secondary hover:bg-secondary-focus/80 transition-all duration-300 group">
+                <div className="flex items-center justify-center">
+                    <div className="relative w-8 h-8">
+                        {svg ? (
+                            <SVGComponent 
+                                name={svgname} 
+                                width={32} 
+                                height={32} 
+                            />
+                        ) : img ? (
+                            <Image 
+                                src={img} 
+                                alt={name || 'tech icon'} 
+                                width={32} 
+                                height={32}
+                                className="w-full h-full object-contain"
+                                draggable={false}
+                            />
+                        ) : (
+                            <Image
+                                src={getImagePath(name) || '/placeholder-icon.png'}
+                                alt={name || 'tech icon'}
+                                width={32}
+                                height={32}
+                                className="w-full h-full object-contain"
+                                draggable={false}
+                            />
+                        )}
+                    </div>
+                    {name && (
+                        <div className="absolute left-0 top-0 w-8 h-8 group-hover:w-full group-hover:h-full flex items-center justify-start group-hover:justify-between px-2 bg-secondary/95 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-lg overflow-hidden">
+                            <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+                                {svg ? (
+                                    <SVGComponent 
+                                        name={svgname} 
+                                        width={32} 
+                                        height={32} 
+                                    />
+                                ) : img ? (
+                                    <Image 
+                                        src={img} 
+                                        alt={name || 'tech icon'} 
+                                        width={32} 
+                                        height={32}
+                                        className="w-full h-full object-contain"
+                                        draggable={false}
+                                    />
+                                ) : (
+                                    <Image
+                                        src={getImagePath(name) || '/placeholder-icon.png'}
+                                        alt={name || 'tech icon'}
+                                        width={32}
+                                        height={32}
+                                        className="w-full h-full object-contain"
+                                        draggable={false}
+                                    />
+                                )}
+                            </div>
+                            <span className="text-sm font-medium text-white/90 ml-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">{name}</span>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </motion.div>
     );
 }

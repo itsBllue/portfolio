@@ -7,7 +7,12 @@ const nextConfig = {
     appDir: true,
   },
   images:{
-    domains:["portfolio-tanweer.s3.eu-west-2.amazonaws.com"]
+    domains:[
+      "portfolio-tanweer.s3.eu-west-2.amazonaws.com",
+      "raw.githubusercontent.com",
+      "cdn.jsdelivr.net",
+      "www.vectorlogo.zone"
+    ]
   }
 }
 
