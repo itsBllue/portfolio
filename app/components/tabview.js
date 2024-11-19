@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const SkillCard = ({ name, icon, category, index }) => {
   return (
@@ -15,10 +16,12 @@ const SkillCard = ({ name, icon, category, index }) => {
       <div className="relative p-3 rounded-lg backdrop-blur-sm border border-white/5 bg-secondary hover:bg-secondary-focus/80 transition-all duration-300">
         <div className="flex items-center gap-3">
           <div className="relative w-8 h-8 flex-shrink-0">
-            <img 
+            <Image 
               src={icon} 
               alt={name}
-              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+              width={32}
+              height={32}
+              className="object-contain transition-transform duration-300 group-hover:scale-110"
             />
           </div>
           <div className="flex-1 min-w-0">
