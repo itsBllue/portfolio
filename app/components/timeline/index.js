@@ -65,12 +65,12 @@ function TimelineEntry(props) {
             transition={{ duration: 0.3 }}
         >
             {/* Vertical line */}
-            <div className="absolute left-[0.9375rem] top-6 bottom-0 w-[1px] bg-white/20 last:hidden" />
+            <div className="absolute left-[0.875rem] top-0 bottom-0 w-[1px] bg-white/20 last:hidden" />
             
             {/* Timeline dot */}
             <motion.div 
                 ref={htmlMarker}
-                className={`absolute left-[0.5625rem] top-[1.125rem] w-3 h-3 rounded-full border-2 ${
+                className={`absolute left-[0.5rem]  w-3 h-3 rounded-full border-2 ${
                     hoverOnEntry 
                         ? "border-primary bg-primary scale-125" 
                         : "border-white/20 bg-secondary"
