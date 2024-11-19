@@ -2,55 +2,127 @@
 
 import React from "react";
 import TimelineComponent from "../../timeline";
+import { motion } from "framer-motion";
 
-const EdcuEntries = [
-    {title:"Computer Networks",
-    subtitle:"Middlesex University",
-    period:"2014 - 2016"
-    },
-    {title:"Computing, Engineering & Media Studies",
-    subtitle:"SixthForm - London Academy",
-    period:"2014 - 2016"
-    },
-    {title:"ICT , Engineering & Core GCSEs",
-    subtitle:"London Academy",
-    period:"2014 - 2016"
-    }
-]
-
-const certs =[{
-    title:"Developer Associate",
-    subtitle:"Amazon Web Services",
-    period:"2023"
-}]
-
-const profexp=[
+const EducationEntries = [
     {
-    title:"Freelance Developer",
-    subtitle:"Remote",
-    period:"2021 - Present"
-},
-{
-    title:"Technical Advisor",
-    subtitle:"Remote, Utilitywarehouse",
-    period:"2019 - Present"
-},
-]
+        title: "Computer Networks",
+        subtitle: "Middlesex University",
+        period: "2014 - 2016",
+        description: "Specialized in network architecture, security protocols, and distributed systems."
+    },
+    {
+        title: "Computing, Engineering & Media Studies",
+        subtitle: "SixthForm - London Academy",
+        period: "2012 - 2014",
+        description: "Advanced level studies in Computer Science, Mathematics, and Media Technology."
+    },
+    {
+        title: "ICT, Engineering & Core GCSEs",
+        subtitle: "London Academy",
+        period: "2010 - 2012",
+        description: "Foundation in Computer Science, Engineering principles, and core subjects."
+    }
+];
 
-export default function ExpSection(props){
+const ProfessionalExperience = [
+    {
+        title: "Freelance Developer",
+        subtitle: "Remote - UK Based",
+        period: "2021 - 2022",
+        description: "Full-stack development focusing on modern web technologies and cloud solutions.",
+        achievements: [
+            "Built responsive web applications with React",
+            "Integrated payment systems and third-party APIs",
+            "Implemented serverless architectures"
+        ]
+    },
+    {
+        title: "Senior Technical Advisor",
+        subtitle: "Utilitywarehouse - Remote",
+        period: "2021 - Present",
+        description: "Leading technical support and system optimization initiatives.",
+        achievements: [
+            "Managed and resolved complex technical issues",
+            "Improved system efficiency and user experience",
+            "Trained and mentored junior team members"
+        ]
+    },
+    {
+        title: "Technical Advisor",
+        subtitle: "Utilitywarehouse - London",
+        period: "2019 - 2021",
+        description: "Provided technical support and implemented system improvements.",
+        achievements: [
+            "Resolved customer technical issues",
+            "Contributed to system documentation",
+            "Participated in process improvement initiatives"
+        ]
+    }
+];
 
-    return(<section id="experience" className="bg-slate-900 text-neutral-content grid grid-cols-1 md:grid-cols-2 gap-y-" >
-        <div className="education-content-container h-auto  overflow-hidden ml-8">
-            <h1 className="text-3xl p-5">Edcuation</h1>
-        <TimelineComponent Entries={EdcuEntries} />
-        </div>
-        <div className="Professional-content-container mt-5 pb-10 ml-8">
-            <h1 className="text-3xl p-5 pt-0">Professional Experience</h1>
-        <TimelineComponent Entries={profexp} />
-        </div>
-        <div className="certificate-content-container mt-5 pb-20 ml-8">
-            <h1 className="text-3xl p-5">Certifications</h1>
-        <TimelineComponent Entries={certs} />
-        </div>
-    </section>)
+const Certifications = [
+    {
+        title: "AWS Developer Associate",
+        subtitle: "Amazon Web Services",
+        period: "2023",
+        description: "Professional certification in AWS cloud development, architecture, and best practices.",
+        achievements: [
+            "Cloud architecture design",
+            "Serverless computing",
+            "Container orchestration"
+        ]
+    }
+];
+
+const SectionTitle = ({ children }) => (
+    <div className="flex items-center gap-4 mb-8">
+        <h2 className="text-2xl font-bold text-primary whitespace-nowrap">{children}</h2>
+        <div className="h-[1px] flex-1 bg-white/10 rounded-full" />
+    </div>
+);
+
+export default function ExpSection() {
+    return (
+        <section id="experience" className="min-h-screen bg-slate-900 py-20">
+            <motion.div 
+                className="container  px-4 md:px-4 lg:px-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <div className="w-2/4 mx-auto">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="mb-20"
+                    >
+                        <SectionTitle>Certifications</SectionTitle>
+                        <TimelineComponent Entries={Certifications} />
+                    </motion.div>
+
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="mb-20"
+                    >
+                        <SectionTitle>Professional Experience</SectionTitle>
+                        <TimelineComponent Entries={ProfessionalExperience} />
+                    </motion.div>
+
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
+                        className="space-y-6"
+                    >
+                        <SectionTitle>Education</SectionTitle>
+                        <TimelineComponent Entries={EducationEntries} />
+                    </motion.div>
+                </div>
+            </motion.div>
+        </section>
+    );
 }

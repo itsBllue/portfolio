@@ -186,8 +186,8 @@ export default function AboutMobileSection() {
                             >
                                 <SocialLink 
                                     icon="github" 
-                                    text="Tanweerkbaig@gmail.com" 
-                                    onClick={() => toClipboard("Tanweerkbaig@gmail.com")}
+                                    text="ItsBllue" 
+                                    href="https://github.com/itsBllue"
                                 />
                                 <SocialLink 
                                     icon="linkedin" 
@@ -195,9 +195,9 @@ export default function AboutMobileSection() {
                                     href="https://www.linkedin.com/in/tkb/"
                                 />
                                 <SocialLink 
-                                    icon="discord" 
-                                    text="Cap'n#3825" 
-                                    onClick={() => toClipboard("Cap'n#3825")}
+                                icon="email" 
+                                text="Tanweerkbaig@gmail.com" 
+                                onClick={() => toClipboard("Tanweerkbaig@gmail.com")}
                                 />
                             </motion.div>
                         </div>

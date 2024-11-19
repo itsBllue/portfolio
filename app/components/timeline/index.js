@@ -1,76 +1,150 @@
 "use client";
 
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
+const achievementsVariants = {
+    hidden: { 
+        opacity: 0,
+        height: 0,
+        transition: {
+            height: { duration: 0.2 },
+            opacity: { duration: 0.1 }
+        }
+    },
+    visible: { 
+        opacity: 1,
+        height: "auto",
+        transition: {
+            height: { duration: 0.3 },
+            opacity: { duration: 0.2, delay: 0.1 }
+        }
+    },
+    exit: { 
+        opacity: 0,
+        height: 0,
+        transition: {
+            height: { duration: 0.2, delay: 0.1 },
+            opacity: { duration: 0.1 }
+        }
+    }
+};
 
+const achievementItemVariants = {
+    hidden: { 
+        opacity: 0,
+        x: -10,
+        transition: { duration: 0.1 }
+    },
+    visible: (i) => ({ 
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 0.2,
+            delay: 0.2 + (i * 0.05)
+        }
+    }),
+    exit: { 
+        opacity: 0,
+        x: -10,
+        transition: { duration: 0.1 }
+    }
+};
 
 function TimelineEntry(props) {
-    const { title, period, subtitle } = props;
+    const { title, period, subtitle, description, achievements } = props;
     const [hoverOnEntry, setHoverOnEntry] = useState(false);
-    const htmlMarker = useRef()
-    const htmlEntryContainer = useRef()
-    const onMouseEnter = (eventForMouseEntry) => {
-        const htmlMarkerBoundary  = htmlMarker.current.getBoundingClientRect();
-        const htmlEntryContainerBoundary = htmlEntryContainer.current.getBoundingClientRect();
+    const htmlMarker = useRef();
+    const htmlEntryContainer = useRef();
 
-        if(eventForMouseEntry.clientX >= htmlEntryContainerBoundary.left && eventForMouseEntry.clientY <= htmlEntryContainerBoundary.right)
-            setHoverOnEntry(true)
-        if(eventForMouseEntry.clientX >= htmlMarkerBoundary.left && eventForMouseEntry.clientY <= htmlMarkerBoundary.right)
-            setHoverOnEntry(true)
-
-
-    }
-
-    const onMouseLeave = (eventForMouseExit) => {
-        setHoverOnEntry(false)
-    }
     return (
-        <>
-            <div ref={ref=>htmlMarker.current = ref} className={`timeline-entry-marker rounded-full h-6 flex w-6 ${hoverOnEntry && "bg-primary-focus before:bg-primary-focus" || "bg-accent"}`}> </div>
-            <div>
+        <motion.div 
+            className="relative pl-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+        >
+            {/* Vertical line */}
+            <div className="absolute left-[0.9375rem] top-6 bottom-0 w-[1px] bg-white/20 last:hidden" />
+            
+            {/* Timeline dot */}
+            <motion.div 
+                ref={htmlMarker}
+                className={`absolute left-[0.5625rem] top-[1.125rem] w-3 h-3 rounded-full border-2 ${
+                    hoverOnEntry 
+                        ? "border-primary bg-primary scale-125" 
+                        : "border-white/20 bg-secondary"
+                } transition-all duration-300`}
+            />
 
-                <div 
-                ref={ref=>htmlEntryContainer.current = ref}
-                className={`timeline-entry-box-thing flex w-fit h-25 relative lg:min-w-[450px] ${hoverOnEntry && "bg-primary-focus/30" }`}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
+            {/* Content */}
+            <motion.div
+                ref={htmlEntryContainer}
+                className="pb-8"
+                onMouseEnter={() => setHoverOnEntry(true)}
+                onMouseLeave={() => setHoverOnEntry(false)}
+            >
+                <motion.div 
+                    className={`rounded-lg backdrop-blur-sm border border-white/5 overflow-hidden ${
+                        hoverOnEntry ? "bg-secondary-focus/80" : "bg-secondary"
+                    }`}
+                    transition={{ duration: 0.2 }}
                 >
-                    <div className={`timeline-entry ${hoverOnEntry && "k" }`}>
-                        <h1 className="timeline-entry-title text-2xl ml-3 font-bold">{title}</h1>
-                        <h1 className="timeline-entry-period text-sm bg-accent w-fit p-2 ml-3 mt-3">{period}</h1>
-                        <h1 className="timeline-entry-location text-sm italic ml-3 mt-3">{subtitle}</h1>
+                    <div className="p-4">
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <h3 className="text-xl font-semibold text-primary">{title}</h3>
+                            <div className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary whitespace-nowrap">
+                                {period}
+                            </div>
+                        </div>
+                        <p className="text-sm text-white/60 italic">{subtitle}</p>
+                        {description && (
+                            <p className="mt-3 text-sm text-white/80 leading-relaxed">{description}</p>
+                        )}
+                        <AnimatePresence mode="wait">
+                            {achievements && achievements.length > 0 && hoverOnEntry && (
+                                <motion.div 
+                                    key="achievements"
+                                    className="mt-4 pl-2 border-l-2 border-primary/20"
+                                    variants={achievementsVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                    exit="exit"
+                                >
+                                    <ul className="space-y-2">
+                                        {achievements.map((achievement, index) => (
+                                            <motion.li 
+                                                key={index}
+                                                className="flex items-start gap-2 text-sm text-white/70"
+                                                custom={index}
+                                                variants={achievementItemVariants}
+                                            >
+                                                <span className="w-1 h-1 rounded-full bg-primary/50 mt-2 flex-shrink-0" />
+                                                <span className="leading-relaxed">{achievement}</span>
+                                            </motion.li>
+                                        ))}
+                                    </ul>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
-                </div>
-            </div>
-        </>
-    )
+                </motion.div>
+            </motion.div>
+        </motion.div>
+    );
 }
-
-function TimelineEntr1y(props) {
-    const { title, period, subtitle } = props;
-
-    return (
-        <div className="timeline-entry-box-thing flex w-fit h-25 relative hover:bg-red-800">
-            <div className="timeline-entry ">
-                <h1 className="timeline-entry-title text-2xl ml-3 font-bold">{title}</h1>
-                <h1 className="timeline-entry-period text-sm bg-accent w-fit p-2 ml-3 mt-3">{period}</h1>
-                <h1 className="timeline-entry-location text-sm italic ml-3 mt-3">{subtitle}</h1>
-            </div>
-        </div>
-    )
-}
-
-
 
 export default function TimelineComponent(props) {
     const { Entries } = props;
 
-    return (<div className="timeline-container  grid-cols-[30px_minmax(900px,_1fr)] grid gap-y-5 gap-x-0 relative ml-4">
-        {Entries.map(entry => {
-            return (
-                <TimelineEntry key={entry.name + "_entry"} title={entry.title} subtitle={entry.subtitle} period={entry.period} />
-            )
-        }
-        )}
-    </div>)
+    return (
+        <div className="relative">
+            {Entries.map((entry, index) => (
+                <TimelineEntry 
+                    key={`${entry.title}_${index}`}
+                    {...entry}
+                />
+            ))}
+        </div>
+    );
 }
