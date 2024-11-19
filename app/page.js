@@ -17,8 +17,7 @@ export default function Home(props) {
   // }, [props])
 
   return (
-    <main className="flex  flex-none flex-col bg-white w-fit h-fit text-black  overflow-x-hidden overflow-y-hidden lg:w-full mt-1 lg:mt-0 z-1">
-
+    <main className="flex flex-col bg-white w-full min-h-screen overflow-x-hidden">
       <AboutSection />
       <ProjectsSection project={targetProject} />
       <ExpSection />

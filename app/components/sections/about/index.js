@@ -129,7 +129,7 @@ function TechTab(props){
 
 export default function AboutMobileSection() {
     return (
-        <section id="home" className="w-screen lg:w-full bg-slate-900"> 
+        <section id="home" className="w-full bg-slate-900"> 
             <div className="w-full max-w-4xl mx-auto px-4 py-8 mt-12">
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}

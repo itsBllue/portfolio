@@ -84,14 +84,14 @@ const SectionTitle = ({ children }) => (
 
 export default function ExpSection() {
     return (
-        <section id="experience" className="min-h-screen bg-slate-900 py-20">
+        <section id="experience" className="w-full min-h-screen bg-slate-900 py-20">
             <motion.div 
-                className="container  px-4 md:px-4 lg:px-8"
+                className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <div className="w-2/4 mx-auto">
+                <div className="w-full md:w-3/4 lg:w-2/3 mx-auto">
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
