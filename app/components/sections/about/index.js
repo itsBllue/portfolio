@@ -165,16 +165,16 @@ export default function AboutMobileSection() {
                             >
                                 <h2 className="text-2xl font-medium text-primary">Hey there! 👋</h2>
                                 <p className="text-secondary-content/90 leading-relaxed">
-                                    I'm a software developer with a passion for creativity and continuous growth. 
-                                    I'm always on the lookout for new technologies and ways to improve my skills, and I love learning from others' feedback.
+                                    I&apos;m a software developer with a passion for creativity and continuous growth. 
+                                    I&apos;m always on the lookout for new technologies and ways to improve my skills, and I love learning from others&apos; feedback.
                                 </p>
                                 <p className="text-secondary-content/90 leading-relaxed">
                                     My experience with different development cycles and stacks has helped me become a quick learner and adaptable problem solver.
-                                    I'm a team player and love working with others to create innovative solutions. In fact, 
-                                    I'm a natural leader and enjoy guiding and motivating my teammates towards success.
+                                    I&apos;m a team player and love working with others to create innovative solutions. In fact, 
+                                    I&apos;m a natural leader and enjoy guiding and motivating my teammates towards success.
                                 </p>
                                 <p className="text-lg font-medium text-primary">
-                                    Let's create something amazing together!
+                                    Let&apos;s create something amazing together!
                                 </p>
                             </motion.div>
 
